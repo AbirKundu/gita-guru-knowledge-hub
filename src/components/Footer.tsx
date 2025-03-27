@@ -15,6 +15,9 @@ const Footer = () => {
             <p className="mt-4 text-foreground/70 text-sm">
               Exploring the timeless wisdom of the Bhagavad Gita for modern seekers.
             </p>
+            <p className="mt-2 text-foreground/70 text-sm">
+              Created by <span className="font-medium">Abir Kundu</span>
+            </p>
           </div>
           
           <div>
@@ -49,7 +52,7 @@ const Footer = () => {
         </div>
         
         <div className="border-t border-border mt-8 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-foreground/60">
-          <p>© {new Date().getFullYear()} GitaGuru. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} GitaGuru. All rights reserved by Abir Kundu.</p>
           <div className="mt-4 md:mt-0 flex space-x-4">
             <a href="#" className="hover:text-primary transition-colors duration-200">Privacy Policy</a>
             <a href="#" className="hover:text-primary transition-colors duration-200">Terms of Service</a>

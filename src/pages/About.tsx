@@ -21,8 +21,20 @@ const AboutPage = () => {
             About GitaGuru
           </h1>
           <p className="text-lg text-foreground/80 max-w-3xl mx-auto text-center mb-12">
-            This page is under construction. Soon, you'll find information about our mission and the story behind GitaGuru.
+            GitaGuru was created by <span className="font-semibold">Abir Kundu</span> to share the timeless wisdom of the Bhagavad Gita with the world.
           </p>
+          
+          <div className="max-w-3xl mx-auto">
+            <div className="bg-card p-6 rounded-lg shadow-sm border border-border mb-8">
+              <h2 className="text-2xl font-semibold mb-4">Creator's Note</h2>
+              <p className="text-foreground/80 mb-4">
+                This project is dedicated to making the profound teachings of the Bhagavad Gita accessible to everyone. All rights for this website and its content are reserved to Abir Kundu.
+              </p>
+              <p className="text-foreground/80">
+                The GitaGuru platform aims to present this ancient wisdom in a modern, accessible format while maintaining the authenticity and depth of the original teachings.
+              </p>
+            </div>
+          </div>
         </div>
       </main>
       <Footer />
