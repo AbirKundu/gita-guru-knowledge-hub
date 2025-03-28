@@ -4,7 +4,7 @@ import { cn } from '@/lib/utils';
 
 const content = {
   en: {
-    toggleLabel: "English",
+    toggleLabel: " English ",
     sectionLabel: "Ancient Wisdom, Modern Application",
     title: "Relevance in Today's World",
     description: "Though thousands of years old, the Bhagavad Gita offers timeless wisdom that remains relevant for navigating the complexities of modern life.",
@@ -35,7 +35,7 @@ const content = {
     buttons: ["Explore Chapters", "Learn Philosophy"],
   },
   bn: {
-    toggleLabel: "বাংলা",
+    toggleLabel: " বাংলা ",
     sectionLabel: "প্রাচীন জ্ঞান, আধুনিক প্রয়োগ",
     title: "আজকের বিশ্বে প্রাসঙ্গিকতা",
     description: "হাজার হাজার বছর পুরনো হলেও, ভগবদ গীতা এমন চিরন্তন জ্ঞান প্রদান করে যা আধুনিক জীবনের জটিলতা সামলাতে এখনও প্রাসঙ্গিক।",
