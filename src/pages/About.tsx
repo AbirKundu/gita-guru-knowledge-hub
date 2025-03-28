@@ -27,7 +27,7 @@ const AboutPage = () => {
             {language === 'english' 
               ? 'GitaGuru was created by '
               : 'গীতাগুরু তৈরি করেছেন '} 
-            <span className="font-semibold">Abir Kundu</span> 
+            <span className="font-semibold">"Abir Kundu"</span> 
             {language === 'english' 
               ? ' to share the timeless wisdom of the Bhagavad Gita with the world.'
               : ' বিশ্বের সাথে ভগবদ্গীতার চিরন্তন জ্ঞান ভাগ করে নেওয়ার জন্য।'}
