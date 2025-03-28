@@ -1,8 +1,11 @@
 
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { LanguageContext } from '@/providers/LanguageProvider';
 
 const Footer = () => {
+  const { language } = useContext(LanguageContext);
+
   return (
     <footer className="bg-card border-t border-border py-10 px-4 md:px-6">
       <div className="container mx-auto">
@@ -13,49 +16,81 @@ const Footer = () => {
               <span className="text-primary font-light">Guru</span>
             </Link>
             <p className="mt-4 text-foreground/70 text-sm">
-              Exploring the timeless wisdom of the Bhagavad Gita for modern seekers.
+              {language === 'english' 
+                ? 'Exploring the timeless wisdom of the Bhagavad Gita for modern seekers.' 
+                : 'আধুনিক সাধকদের জন্য ভগবদ্গীতার চিরন্তন জ্ঞান অন্বেষণ।'}
             </p>
             <p className="mt-2 text-foreground/70 text-sm">
-              Created by <span className="font-medium">Abir Kundu</span>
+              {language === 'english' 
+                ? 'Created by ' 
+                : 'নির্মাতা '}<span className="font-medium">Abir Kundu</span>
             </p>
           </div>
           
           <div>
-            <h3 className="font-medium mb-4">Explore</h3>
+            <h3 className="font-medium mb-4">{language === 'english' ? 'Explore' : 'অন্বেষণ'}</h3>
             <ul className="space-y-2 text-sm">
-              <li><Link to="/" className="text-foreground/70 hover:text-primary transition-colors duration-200">Home</Link></li>
-              <li><Link to="/chapters" className="text-foreground/70 hover:text-primary transition-colors duration-200">Chapters</Link></li>
-              <li><Link to="/philosophy" className="text-foreground/70 hover:text-primary transition-colors duration-200">Philosophy</Link></li>
-              <li><Link to="/verses" className="text-foreground/70 hover:text-primary transition-colors duration-200">Key Verses</Link></li>
+              <li><Link to="/" className="text-foreground/70 hover:text-primary transition-colors duration-200">
+                {language === 'english' ? 'Home' : 'হোম'}
+              </Link></li>
+              <li><Link to="/chapters" className="text-foreground/70 hover:text-primary transition-colors duration-200">
+                {language === 'english' ? 'Chapters' : 'অধ্যায়'}
+              </Link></li>
+              <li><Link to="/philosophy" className="text-foreground/70 hover:text-primary transition-colors duration-200">
+                {language === 'english' ? 'Philosophy' : 'দর্শন'}
+              </Link></li>
+              <li><Link to="/verses" className="text-foreground/70 hover:text-primary transition-colors duration-200">
+                {language === 'english' ? 'Key Verses' : 'মূল শ্লোক'}
+              </Link></li>
             </ul>
           </div>
           
           <div>
-            <h3 className="font-medium mb-4">Resources</h3>
+            <h3 className="font-medium mb-4">{language === 'english' ? 'Resources' : 'সম্পদ'}</h3>
             <ul className="space-y-2 text-sm">
-              <li><Link to="/about" className="text-foreground/70 hover:text-primary transition-colors duration-200">About</Link></li>
-              <li><a href="#" className="text-foreground/70 hover:text-primary transition-colors duration-200">Commentaries</a></li>
-              <li><a href="#" className="text-foreground/70 hover:text-primary transition-colors duration-200">Sanskrit Text</a></li>
-              <li><a href="#" className="text-foreground/70 hover:text-primary transition-colors duration-200">Resources</a></li>
+              <li><Link to="/about" className="text-foreground/70 hover:text-primary transition-colors duration-200">
+                {language === 'english' ? 'About' : 'পরিচিতি'}
+              </Link></li>
+              <li><a href="#" className="text-foreground/70 hover:text-primary transition-colors duration-200">
+                {language === 'english' ? 'Commentaries' : 'ভাষ্য'}
+              </a></li>
+              <li><a href="#" className="text-foreground/70 hover:text-primary transition-colors duration-200">
+                {language === 'english' ? 'Sanskrit Text' : 'সংস্কৃত পাঠ'}
+              </a></li>
+              <li><a href="#" className="text-foreground/70 hover:text-primary transition-colors duration-200">
+                {language === 'english' ? 'Resources' : 'সম্পদসমূহ'}
+              </a></li>
             </ul>
           </div>
           
           <div>
-            <h3 className="font-medium mb-4">Connect</h3>
+            <h3 className="font-medium mb-4">{language === 'english' ? 'Connect' : 'যোগাযোগ'}</h3>
             <ul className="space-y-2 text-sm">
-              <li><a href="#" className="text-foreground/70 hover:text-primary transition-colors duration-200">Contact Us</a></li>
-              <li><a href="#" className="text-foreground/70 hover:text-primary transition-colors duration-200">Newsletter</a></li>
-              <li><a href="#" className="text-foreground/70 hover:text-primary transition-colors duration-200">Community</a></li>
-              <li><a href="#" className="text-foreground/70 hover:text-primary transition-colors duration-200">Events</a></li>
+              <li><a href="#" className="text-foreground/70 hover:text-primary transition-colors duration-200">
+                {language === 'english' ? 'Contact Us' : 'যোগাযোগ করুন'}
+              </a></li>
+              <li><a href="#" className="text-foreground/70 hover:text-primary transition-colors duration-200">
+                {language === 'english' ? 'Newsletter' : 'নিউজলেটার'}
+              </a></li>
+              <li><a href="#" className="text-foreground/70 hover:text-primary transition-colors duration-200">
+                {language === 'english' ? 'Community' : 'সম্প্রদায়'}
+              </a></li>
+              <li><a href="#" className="text-foreground/70 hover:text-primary transition-colors duration-200">
+                {language === 'english' ? 'Events' : 'অনুষ্ঠান'}
+              </a></li>
             </ul>
           </div>
         </div>
         
         <div className="border-t border-border mt-8 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-foreground/60">
-          <p>© {new Date().getFullYear()} GitaGuru. All rights reserved by Abir Kundu.</p>
+          <p>© {new Date().getFullYear()} GitaGuru. {language === 'english' ? 'All rights reserved by' : 'সমস্ত অধিকার সংরক্ষিত'} Abir Kundu.</p>
           <div className="mt-4 md:mt-0 flex space-x-4">
-            <a href="#" className="hover:text-primary transition-colors duration-200">Privacy Policy</a>
-            <a href="#" className="hover:text-primary transition-colors duration-200">Terms of Service</a>
+            <a href="#" className="hover:text-primary transition-colors duration-200">
+              {language === 'english' ? 'Privacy Policy' : 'গোপনীয়তা নীতি'}
+            </a>
+            <a href="#" className="hover:text-primary transition-colors duration-200">
+              {language === 'english' ? 'Terms of Service' : 'পরিষেবার শর্তাবলী'}
+            </a>
           </div>
         </div>
       </div>

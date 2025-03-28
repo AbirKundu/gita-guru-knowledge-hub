@@ -1,14 +1,15 @@
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { Link } from 'react-router-dom';
-import { Menu, X, Languages } from 'lucide-react';
+import { Menu, X, Globe } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import ThemeToggle from './ThemeToggle';
+import { LanguageContext } from '@/providers/LanguageProvider';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [language, setLanguage] = useState<'english' | 'bengali'>('english');
+  const { language, setLanguage } = useContext(LanguageContext);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -38,7 +39,7 @@ const Navbar = () => {
             <NavLinks language={language} />
             
             <div className="flex items-center space-x-2 border-l border-border pl-6">
-              <Languages size={18} className="text-foreground/70" />
+              <Globe size={18} className="text-foreground/70" />
               <select 
                 value={language}
                 onChange={(e) => setLanguage(e.target.value as 'english' | 'bengali')}
@@ -76,7 +77,7 @@ const Navbar = () => {
           <NavLinks language={language} mobile onClose={() => setIsMenuOpen(false)} />
           
           <div className="flex items-center space-x-2 pt-4 border-t border-border">
-            <Languages size={18} className="text-foreground/70" />
+            <Globe size={18} className="text-foreground/70" />
             <select 
               value={language}
               onChange={(e) => setLanguage(e.target.value as 'english' | 'bengali')}
