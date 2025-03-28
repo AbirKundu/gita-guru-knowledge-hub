@@ -1,13 +1,14 @@
 
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Languages } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import ThemeToggle from './ThemeToggle';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [language, setLanguage] = useState<'english' | 'bengali'>('english');
 
   useEffect(() => {
     const handleScroll = () => {
@@ -33,9 +34,21 @@ const Navbar = () => {
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center space-x-8">
-            <NavLinks />
-            <ThemeToggle />
+          <nav className="hidden lg:flex items-center space-x-6">
+            <NavLinks language={language} />
+            
+            <div className="flex items-center space-x-2 border-l border-border pl-6">
+              <Languages size={18} className="text-foreground/70" />
+              <select 
+                value={language}
+                onChange={(e) => setLanguage(e.target.value as 'english' | 'bengali')}
+                className="bg-transparent text-sm cursor-pointer outline-none"
+              >
+                <option value="english">English</option>
+                <option value="bengali">বাংলা</option>
+              </select>
+              <ThemeToggle />
+            </div>
           </nav>
 
           {/* Mobile Menu Button */}
@@ -60,14 +73,34 @@ const Navbar = () => {
         )}
       >
         <nav className="flex flex-col space-y-6 text-lg">
-          <NavLinks mobile onClose={() => setIsMenuOpen(false)} />
+          <NavLinks language={language} mobile onClose={() => setIsMenuOpen(false)} />
+          
+          <div className="flex items-center space-x-2 pt-4 border-t border-border">
+            <Languages size={18} className="text-foreground/70" />
+            <select 
+              value={language}
+              onChange={(e) => setLanguage(e.target.value as 'english' | 'bengali')}
+              className="bg-transparent text-sm cursor-pointer outline-none"
+            >
+              <option value="english">English</option>
+              <option value="bengali">বাংলা</option>
+            </select>
+          </div>
         </nav>
       </div>
     </header>
   );
 };
 
-const NavLinks = ({ mobile = false, onClose }: { mobile?: boolean; onClose?: () => void }) => {
+const NavLinks = ({ 
+  mobile = false, 
+  onClose,
+  language 
+}: { 
+  mobile?: boolean; 
+  onClose?: () => void;
+  language: 'english' | 'bengali';
+}) => {
   const handleClick = () => {
     if (mobile && onClose) {
       onClose();
@@ -81,35 +114,35 @@ const NavLinks = ({ mobile = false, onClose }: { mobile?: boolean; onClose?: () 
         className="text-foreground/80 hover:text-primary transition-colors duration-200"
         onClick={handleClick}
       >
-        Home
+        {language === 'english' ? 'Home' : 'হোম'}
       </Link>
       <Link 
         to="/chapters" 
         className="text-foreground/80 hover:text-primary transition-colors duration-200"
         onClick={handleClick}
       >
-        Chapters
+        {language === 'english' ? 'Chapters' : 'অধ্যায়'}
       </Link>
       <Link 
         to="/philosophy" 
         className="text-foreground/80 hover:text-primary transition-colors duration-200"
         onClick={handleClick}
       >
-        Philosophy
+        {language === 'english' ? 'Philosophy' : 'দর্শন'}
       </Link>
       <Link 
         to="/verses" 
         className="text-foreground/80 hover:text-primary transition-colors duration-200"
         onClick={handleClick}
       >
-        Key Verses
+        {language === 'english' ? 'Key Verses' : 'মূল শ্লোক'}
       </Link>
       <Link 
         to="/about" 
         className="text-foreground/80 hover:text-primary transition-colors duration-200"
         onClick={handleClick}
       >
-        About
+        {language === 'english' ? 'About' : 'পরিচিতি'}
       </Link>
     </>
   );
