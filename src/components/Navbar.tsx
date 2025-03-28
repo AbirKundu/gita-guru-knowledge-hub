@@ -23,7 +23,7 @@ const Navbar = () => {
     <header 
       className={cn(
         'fixed top-0 left-0 w-full z-50 transition-all duration-300 ease-in-out py-6',
-        isScrolled ? 'glass py-4' : 'bg-transparent backdrop-blur-lg'
+        isScrolled ? 'glass py-4' : 'bg-transparent custom-blur'
       )}
     >
       <div className="container mx-auto px-4 md:px-6 lg:px-8">
