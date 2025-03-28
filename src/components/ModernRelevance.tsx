@@ -12,22 +12,22 @@ const content = {
       {
         title: "Professional Life",
         description: "The concept of doing your duty without attachment to results can help reduce workplace stress and promote ethical decision-making.",
-        icon: <Briefcase size={24} />,
+        icon: <Briefcase size={24} />, 
       },
       {
         title: "Stress Management",
         description: "The Gita's teachings about controlling the mind through meditation provide effective tools for managing anxiety and stress in modern life.",
-        icon: <Lightbulb size={24} />,
+        icon: <Lightbulb size={24} />, 
       },
       {
         title: "Relationships",
         description: "Understanding the eternal nature of the soul can help develop deeper compassion and meaningful connections with others.",
-        icon: <HeartHandshake size={24} />,
+        icon: <HeartHandshake size={24} />, 
       },
       {
         title: "Personal Growth",
         description: "The Gita's emphasis on self-discipline and continuous self-improvement offers a framework for personal development and resilience.",
-        icon: <Dumbbell size={24} />,
+        icon: <Dumbbell size={24} />, 
       },
     ],
     journey: "Begin Your Journey of Discovery",
@@ -43,22 +43,22 @@ const content = {
       {
         title: "পেশাগত জীবন",
         description: "ফলাফলের প্রতি আসক্তি ছাড়াই কর্তব্য পালনের ধারণা কর্মক্ষেত্রে চাপ কমাতে এবং নৈতিক সিদ্ধান্ত গ্রহণে সহায়তা করতে পারে।",
-        icon: <Briefcase size={24} />,
+        icon: <Briefcase size={24} />, 
       },
       {
         title: "চাপ ব্যবস্থাপনা",
         description: "মেডিটেশনের মাধ্যমে মন নিয়ন্ত্রণের গীতার শিক্ষা আধুনিক জীবনে উদ্বেগ ও চাপ সামলানোর কার্যকর উপায় সরবরাহ করে।",
-        icon: <Lightbulb size={24} />,
+        icon: <Lightbulb size={24} />, 
       },
       {
         title: "সম্পর্ক",
         description: "আত্মার চিরন্তন প্রকৃতি বোঝার মাধ্যমে গভীর সহানুভূতি এবং অন্যদের সাথে অর্থবহ সংযোগ গড়ে তোলা যায়।",
-        icon: <HeartHandshake size={24} />,
+        icon: <HeartHandshake size={24} />, 
       },
       {
         title: "ব্যক্তিগত উন্নয়ন",
         description: "আত্মশৃঙ্খলা এবং ধারাবাহিক আত্মউন্নয়নের প্রতি গীতার গুরুত্ব ব্যক্তিগত বিকাশ এবং স্থিতিস্থাপকতার একটি কাঠামো প্রদান করে।",
-        icon: <Dumbbell size={24} />,
+        icon: <Dumbbell size={24} />, 
       },
     ],
     journey: "আপনার আবিষ্কারের যাত্রা শুরু করুন",
@@ -75,12 +75,16 @@ const ModernRelevance = () => {
   return (
     <section className="py-20 px-4 md:px-6">
       <div className="container mx-auto max-w-6xl text-center">
-        <button 
-          onClick={toggleLanguage} 
-          className="mb-4 px-4 py-2 bg-primary text-white rounded-lg shadow-md hover:bg-primary/80 transition"
-        >
-          {data.toggleLabel}
-        </button>
+        <div className="flex justify-center mb-6">
+          <button
+            className="relative flex bg-gray-800 rounded-full w-32 p-1 cursor-pointer focus:outline-none"
+            onClick={toggleLanguage}
+          >
+            <span className={`absolute left-1 top-1 bottom-1 w-1/2 rounded-full bg-gray-600 transition-all duration-300 ${language === 'bn' ? 'translate-x-full' : ''}`}></span>
+            <span className="flex-1 text-center py-2 text-white relative z-10">English</span>
+            <span className="flex-1 text-center py-2 text-white relative z-10">বাংলা</span>
+          </button>
+        </div>
         
         <span className="inline-block px-4 py-1.5 mb-6 text-sm rounded-full bg-primary/10 text-primary">
           {data.sectionLabel}
@@ -115,25 +119,6 @@ const ModernRelevance = () => {
         </div>
       </div>
     </section>
-  );
-};
-
-const RelevanceCard = ({ title, description, icon, index }) => {
-  return (
-    <div 
-      className="group relative overflow-hidden bg-card border border-border rounded-xl p-6 transition-all duration-300 hover:shadow-lg animate-fade-up"
-      style={{ animationDelay: `${index * 100}ms` }}
-    >
-      <div className="flex items-start gap-4">
-        <div className="w-12 h-12 flex items-center justify-center rounded-full bg-primary/10 text-primary shrink-0 transition-transform duration-300 group-hover:scale-110">
-          {icon}
-        </div>
-        <div>
-          <h3 className="text-xl font-semibold mb-2">{title}</h3>
-          <p className="text-foreground/70">{description}</p>
-        </div>
-      </div>
-    </div>
   );
 };
 
