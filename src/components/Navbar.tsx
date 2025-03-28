@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { Menu, X, Globe } from 'lucide-react';
@@ -24,7 +23,7 @@ const Navbar = () => {
     <header 
       className={cn(
         'fixed top-0 left-0 w-full z-50 transition-all duration-300 ease-in-out py-6',
-        isScrolled ? 'glass py-4' : 'bg-transparent'
+        isScrolled ? 'glass py-4' : 'bg-transparent backdrop-blur-lg'
       )}
     >
       <div className="container mx-auto px-4 md:px-6 lg:px-8">
@@ -112,35 +111,35 @@ const NavLinks = ({
     <>
       <Link 
         to="/" 
-        className="text-foreground/80 hover:text-primary transition-colors duration-200"
+        className="text-foreground/80 hover:text-primary transition-all duration-200 hover:shadow-lg hover:scale-105"
         onClick={handleClick}
       >
         {language === 'english' ? 'Home' : 'হোম'}
       </Link>
       <Link 
         to="/chapters" 
-        className="text-foreground/80 hover:text-primary transition-colors duration-200"
+        className="text-foreground/80 hover:text-primary transition-all duration-200 hover:shadow-lg hover:scale-105"
         onClick={handleClick}
       >
         {language === 'english' ? 'Chapters' : 'অধ্যায়'}
       </Link>
       <Link 
         to="/philosophy" 
-        className="text-foreground/80 hover:text-primary transition-colors duration-200"
+        className="text-foreground/80 hover:text-primary transition-all duration-200 hover:shadow-lg hover:scale-105"
         onClick={handleClick}
       >
         {language === 'english' ? 'Philosophy' : 'দর্শন'}
       </Link>
       <Link 
         to="/verses" 
-        className="text-foreground/80 hover:text-primary transition-colors duration-200"
+        className="text-foreground/80 hover:text-primary transition-all duration-200 hover:shadow-lg hover:scale-105"
         onClick={handleClick}
       >
         {language === 'english' ? 'Key Verses' : 'মূল শ্লোক'}
       </Link>
       <Link 
         to="/about" 
-        className="text-foreground/80 hover:text-primary transition-colors duration-200"
+        className="text-foreground/80 hover:text-primary transition-all duration-200 hover:shadow-lg hover:scale-105"
         onClick={handleClick}
       >
         {language === 'english' ? 'About' : 'পরিচিতি'}
