@@ -1,9 +1,74 @@
+
 import React, { useEffect, useContext } from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Book, BookOpen, Heart, Brain, Compass, Activity, Infinity, Sparkles, Scale } from 'lucide-react';
 import { LanguageContext } from '@/providers/LanguageProvider';
+
+// Interface for the ConceptCard component
+interface ConceptCardProps {
+  title: string;
+  description: string;
+  icon: React.ReactNode;
+  color: string;
+  details: string[];
+  chapters: string;
+  mainVerse: string;
+  translation: string;
+  index?: number;
+}
+
+const ConceptCard = ({ 
+  title, 
+  description, 
+  icon, 
+  color, 
+  details, 
+  chapters, 
+  mainVerse, 
+  translation, 
+  index = 0 
+}: ConceptCardProps) => {
+  return (
+    <div 
+      className="group relative overflow-hidden bg-card border border-border rounded-xl p-6 transition-all duration-300 hover:shadow-lg animate-fade-up"
+      style={{ animationDelay: `${index * 150}ms` }}
+    >
+      <div className="absolute -right-6 -bottom-6 w-32 h-32 rounded-full bg-primary/5 transition-transform duration-500 group-hover:scale-150"></div>
+      
+      <div className="relative z-10">
+        <div className={`w-14 h-14 flex items-center justify-center rounded-lg mb-6 transition-transform duration-300 group-hover:scale-110 ${color}`}>
+          {icon}
+        </div>
+        
+        <h3 className="text-xl font-semibold mb-3">{title}</h3>
+        <p className="text-foreground/70 mb-4">{description}</p>
+        
+        <div className="space-y-4">
+          <div>
+            <h4 className="font-medium mb-2">Key Points:</h4>
+            <ul className="list-disc pl-5 space-y-1 text-foreground/70">
+              {details.map((detail, i) => (
+                <li key={i}>{detail}</li>
+              ))}
+            </ul>
+          </div>
+          
+          <div>
+            <h4 className="font-medium mb-1">Where to find:</h4>
+            <p className="text-foreground/70">{chapters}</p>
+          </div>
+          
+          <div className="pt-2 border-t border-border">
+            <p className="italic text-xs text-foreground/60 mb-1">{mainVerse}</p>
+            <p className="text-sm text-foreground/70">{translation}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
 
 const PhilosophyPage = () => {
   const { language } = useContext(LanguageContext);
@@ -525,4 +590,30 @@ const PhilosophyPage = () => {
                       "Righteousness that upholds cosmic and social order",
                       "Based on principles like non-violence, truth, and compassion",
                       "Actions judged by intention, not just consequences",
-                      "Different from rigid rule-based morality
+                      "Different from rigid rule-based morality",
+                      "Ultimately aimed at spiritual liberation and universal welfare"
+                    ]
+                    : [
+                      "মহাজাগতিক ও সামাজিক শৃঙ্খলা বজায় রাখে এমন ধার্মিকতা",
+                      "অহিংসা, সত্য, এবং করুণার মতো নীতির উপর ভিত্তি করে",
+                      "কর্মের বিচার শুধু ফলাফল নয়, উদ্দেশ্য দ্বারাও হয়",
+                      "কঠোর নিয়ম-ভিত্তিক নৈতিকতা থেকে ভিন্ন",
+                      "চূড়ান্তভাবে আধ্যাত্মিক মুক্তি ও বিশ্বকল্যাণের লক্ষ্যে নির্দিষ্ট"
+                    ]}
+                  chapters={language === 'english' ? "Discussed throughout, especially in Chapters 3, 16, and 18" : "সর্বত্র আলোচিত, বিশেষ করে অধ্যায় ৩, ১৬, এবং ১৮-এ"}
+                  mainVerse="yataḥ pravṛttir bhūtānāṁ yena sarvam idaṁ tatam sva-karmaṇā tam abhyarcya siddhiṁ vindati mānavaḥ"
+                  translation={language === 'english' 
+                    ? "By worship of the Lord, who is the source of all beings and who is all-pervading, a man can attain perfection through performing his own work."
+                    : "সমস্ত প্রাণীর উৎস এবং সর্বব্যাপী ভগবানের পূজার মাধ্যমে, একজন মানুষ তার নিজের কর্ম সম্পাদন করে পূর্ণতা অর্জন করতে পারে।"}
+                />
+              </div>
+            </TabsContent>
+          </Tabs>
+        </div>
+      </main>
+      <Footer />
+    </div>
+  );
+};
+
+export default PhilosophyPage;
