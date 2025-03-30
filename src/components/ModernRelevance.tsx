@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { Briefcase, Lightbulb, HeartHandshake, Dumbbell } from 'lucide-react';
 import { cn } from '@/lib/utils';
@@ -73,7 +74,7 @@ const ModernRelevance = () => {
   const data = content[language];
 
   return (
-    <section className="py-20 px-4 md:px-6">
+    <section className="py-16 md:py-20 px-4 md:px-6">
       <div className="container mx-auto max-w-6xl text-center">
         <button 
           onClick={toggleLanguage} 
@@ -85,12 +86,12 @@ const ModernRelevance = () => {
         <span className="inline-block px-4 py-1.5 mb-6 text-sm rounded-full bg-primary/10 text-primary">
           {data.sectionLabel}
         </span>
-        <h2 className="text-3xl md:text-4xl font-bold mb-6">{data.title}</h2>
-        <p className="text-lg text-foreground/80 max-w-3xl mx-auto mb-10">
+        <h2 className="text-2xl md:text-4xl font-bold mb-4 md:mb-6">{data.title}</h2>
+        <p className="text-base md:text-lg text-foreground/80 max-w-3xl mx-auto mb-8 md:mb-10">
           {data.description}
         </p>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
           {data.items.map((item, index) => (
             <RelevanceCard 
               key={item.title} 
@@ -102,10 +103,10 @@ const ModernRelevance = () => {
           ))}
         </div>
 
-        <div className="mt-16">
-          <h3 className="text-2xl font-semibold mb-3">{data.journey}</h3>
+        <div className="mt-12 md:mt-16">
+          <h3 className="text-xl md:text-2xl font-semibold mb-3">{data.journey}</h3>
           <p className="text-foreground/80 max-w-2xl mx-auto mb-6">{data.explore}</p>
-          <div className="flex justify-center gap-4">
+          <div className="flex flex-col sm:flex-row justify-center gap-4">
             {data.buttons.map((btn, i) => (
               <button key={i} className="px-6 py-3 bg-primary text-white rounded-lg shadow-md hover:bg-primary/80 transition">
                 {btn}
@@ -121,16 +122,16 @@ const ModernRelevance = () => {
 const RelevanceCard = ({ title, description, icon, index }) => {
   return (
     <div 
-      className="group relative overflow-hidden bg-card border border-border rounded-xl p-6 transition-all duration-300 hover:shadow-lg animate-fade-up"
+      className="group relative overflow-hidden bg-card border border-border rounded-xl p-4 md:p-6 transition-all duration-300 hover:shadow-lg animate-fade-up"
       style={{ animationDelay: `${index * 100}ms` }}
     >
       <div className="flex items-start gap-4">
-        <div className="w-12 h-12 flex items-center justify-center rounded-full bg-primary/10 text-primary shrink-0 transition-transform duration-300 group-hover:scale-110">
+        <div className="w-10 h-10 md:w-12 md:h-12 flex items-center justify-center rounded-full bg-primary/10 text-primary shrink-0 transition-transform duration-300 group-hover:scale-110">
           {icon}
         </div>
         <div>
-          <h3 className="text-xl font-semibold mb-2">{title}</h3>
-          <p className="text-foreground/70">{description}</p>
+          <h3 className="text-lg md:text-xl font-semibold mb-2">{title}</h3>
+          <p className="text-sm md:text-base text-foreground/70">{description}</p>
         </div>
       </div>
     </div>

@@ -1,14 +1,17 @@
+
 import React, { useState, useEffect, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { Menu, X, Globe } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import ThemeToggle from './ThemeToggle';
 import { LanguageContext } from '@/providers/LanguageProvider';
+import { useIsMobile } from '@/hooks/use-mobile';
+import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { language, setLanguage } = useContext(LanguageContext);
+  const isMobile = useIsMobile();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -51,42 +54,57 @@ const Navbar = () => {
             </div>
           </nav>
 
-          {/* Mobile Menu Button */}
-          <div className="lg:hidden flex items-center gap-2">
-            <ThemeToggle />
-            <button 
-              className="p-2"
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-              aria-label="Toggle menu"
-            >
-              {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-            </button>
-          </div>
+          {/* Mobile Navigation using Sheet from shadcn */}
+          {isMobile ? (
+            <div className="lg:hidden flex items-center gap-2">
+              <ThemeToggle />
+              <Sheet>
+                <SheetTrigger asChild>
+                  <button 
+                    className="p-2 focus:outline-none"
+                    aria-label="Toggle menu"
+                  >
+                    <Menu size={24} />
+                  </button>
+                </SheetTrigger>
+                <SheetContent side="right" className="w-[80%] pt-14">
+                  <button 
+                    className="absolute right-4 top-4 p-2 rounded-full hover:bg-muted/50 transition-colors"
+                    aria-label="Close menu"
+                  >
+                    <X size={24} />
+                  </button>
+                  <nav className="flex flex-col space-y-6 mt-8 text-lg">
+                    <NavLinks language={language} mobile />
+                    
+                    <div className="flex items-center space-x-2 pt-4 border-t border-border">
+                      <Globe size={18} className="text-foreground/70" />
+                      <select 
+                        value={language}
+                        onChange={(e) => setLanguage(e.target.value as 'english' | 'bengali')}
+                        className="bg-transparent text-sm cursor-pointer outline-none"
+                      >
+                        <option value="english">English</option>
+                        <option value="bengali">বাংলা</option>
+                      </select>
+                    </div>
+                  </nav>
+                </SheetContent>
+              </Sheet>
+            </div>
+          ) : (
+            <div className="lg:hidden flex items-center gap-2">
+              <ThemeToggle />
+              <button 
+                className="p-2"
+                onClick={() => {}} // This isn't used anymore with Sheet component
+                aria-label="Toggle menu"
+              >
+                <Menu size={24} />
+              </button>
+            </div>
+          )}
         </div>
-      </div>
-
-      {/* Mobile Navigation */}
-      <div 
-        className={cn(
-          "fixed inset-0 bg-background glass pt-24 px-6 z-40 transition-transform duration-300 ease-in-out lg:hidden",
-          isMenuOpen ? "translate-x-0" : "translate-x-full"
-        )}
-      >
-        <nav className="flex flex-col space-y-6 text-lg">
-          <NavLinks language={language} mobile onClose={() => setIsMenuOpen(false)} />
-          
-          <div className="flex items-center space-x-2 pt-4 border-t border-border">
-            <Globe size={18} className="text-foreground/70" />
-            <select 
-              value={language}
-              onChange={(e) => setLanguage(e.target.value as 'english' | 'bengali')}
-              className="bg-transparent text-sm cursor-pointer outline-none"
-            >
-              <option value="english">English</option>
-              <option value="bengali">বাংলা</option>
-            </select>
-          </div>
-        </nav>
       </div>
     </header>
   );
@@ -94,53 +112,56 @@ const Navbar = () => {
 
 const NavLinks = ({ 
   mobile = false, 
-  onClose,
   language 
 }: { 
   mobile?: boolean; 
   onClose?: () => void;
   language: 'english' | 'bengali';
 }) => {
-  const handleClick = () => {
-    if (mobile && onClose) {
-      onClose();
-    }
-  };
-
   return (
     <>
       <Link 
         to="/" 
-        className="text-foreground/80 hover:text-primary transition-all duration-200 hover:shadow-lg hover:scale-105"
-        onClick={handleClick}
+        className={cn(
+          "text-foreground/80 hover:text-primary transition-all duration-200",
+          mobile ? "text-lg py-2" : "hover:shadow-lg hover:scale-105"
+        )}
       >
         {language === 'english' ? 'Home' : 'হোম'}
       </Link>
       <Link 
         to="/chapters" 
-        className="text-foreground/80 hover:text-primary transition-all duration-200 hover:shadow-lg hover:scale-105"
-        onClick={handleClick}
+        className={cn(
+          "text-foreground/80 hover:text-primary transition-all duration-200",
+          mobile ? "text-lg py-2" : "hover:shadow-lg hover:scale-105"
+        )}
       >
         {language === 'english' ? 'Chapters' : 'অধ্যায়'}
       </Link>
       <Link 
         to="/philosophy" 
-        className="text-foreground/80 hover:text-primary transition-all duration-200 hover:shadow-lg hover:scale-105"
-        onClick={handleClick}
+        className={cn(
+          "text-foreground/80 hover:text-primary transition-all duration-200",
+          mobile ? "text-lg py-2" : "hover:shadow-lg hover:scale-105"
+        )}
       >
         {language === 'english' ? 'Philosophy' : 'দর্শন'}
       </Link>
       <Link 
         to="/verses" 
-        className="text-foreground/80 hover:text-primary transition-all duration-200 hover:shadow-lg hover:scale-105"
-        onClick={handleClick}
+        className={cn(
+          "text-foreground/80 hover:text-primary transition-all duration-200",
+          mobile ? "text-lg py-2" : "hover:shadow-lg hover:scale-105"
+        )}
       >
         {language === 'english' ? 'Key Verses' : 'মূল শ্লোক'}
       </Link>
       <Link 
         to="/about" 
-        className="text-foreground/80 hover:text-primary transition-all duration-200 hover:shadow-lg hover:scale-105"
-        onClick={handleClick}
+        className={cn(
+          "text-foreground/80 hover:text-primary transition-all duration-200",
+          mobile ? "text-lg py-2" : "hover:shadow-lg hover:scale-105"
+        )}
       >
         {language === 'english' ? 'About' : 'পরিচিতি'}
       </Link>
