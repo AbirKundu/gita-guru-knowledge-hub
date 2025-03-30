@@ -46,10 +46,17 @@
 @media (max-width: 768px) {
   body {
     overflow-x: hidden;
+    width: 100%;
   }
   
   .container {
     padding-left: 1rem;
     padding-right: 1rem;
+    width: 100%;
+  }
+
+  /* Fix for TabsList on mobile */
+  [data-orientation="horizontal"] {
+    flex-direction: column;
   }
 }

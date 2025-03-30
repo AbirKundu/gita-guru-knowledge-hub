@@ -9,6 +9,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { getChapterSummary, getVerseCount, getSanskritName } from '@/utils/chapterUtils';
 import { getKeyTeachings } from '@/utils/chapterTeachings';
 import { getKeyVerses } from '@/utils/chapterVerses';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 interface ChapterDetailCardProps {
   chapter: ChapterData;
@@ -17,6 +18,7 @@ interface ChapterDetailCardProps {
 const ChapterDetailCard = ({ chapter }: ChapterDetailCardProps) => {
   const { language } = useContext(LanguageContext);
   const [isOpen, setIsOpen] = useState(false);
+  const isMobile = useIsMobile();
   
   const keyTeachings = getKeyTeachings(chapter.number, language);
   const keyVerses = getKeyVerses(chapter.number, language);
@@ -55,20 +57,26 @@ const ChapterDetailCard = ({ chapter }: ChapterDetailCardProps) => {
           <div className="px-6 pb-6 pt-2">
             <div className="bg-secondary/30 rounded-xl p-5 mt-4">
               <Tabs defaultValue="summary" className="w-full">
-                <TabsList className="w-full grid grid-cols-3 mb-4">
-                  <TabsTrigger value="summary">
+                {/* Modified TabsList to be responsive - vertical on mobile, horizontal on desktop */}
+                <TabsList className={cn(
+                  "mb-4",
+                  isMobile 
+                    ? "flex flex-col space-y-1 w-full" 
+                    : "grid grid-cols-3 w-full"
+                )}>
+                  <TabsTrigger value="summary" className={cn(isMobile && "justify-start w-full")}>
                     <div className="flex items-center gap-2">
                       <BookOpen size={16} />
                       <span>{language === 'english' ? 'Summary' : 'সারাংশ'}</span>
                     </div>
                   </TabsTrigger>
-                  <TabsTrigger value="teachings">
+                  <TabsTrigger value="teachings" className={cn(isMobile && "justify-start w-full")}>
                     <div className="flex items-center gap-2">
                       <ScrollText size={16} />
                       <span>{language === 'english' ? 'Key Teachings' : 'মূল শিক্ষা'}</span>
                     </div>
                   </TabsTrigger>
-                  <TabsTrigger value="verses">
+                  <TabsTrigger value="verses" className={cn(isMobile && "justify-start w-full")}>
                     <div className="flex items-center gap-2">
                       <Sparkles size={16} />
                       <span>{language === 'english' ? 'Key Verses' : 'মূল শ্লোক'}</span>

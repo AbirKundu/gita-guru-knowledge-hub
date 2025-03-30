@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { Menu, X, Globe } from 'lucide-react';
@@ -6,7 +5,7 @@ import { cn } from '@/lib/utils';
 import ThemeToggle from './ThemeToggle';
 import { LanguageContext } from '@/providers/LanguageProvider';
 import { useIsMobile } from '@/hooks/use-mobile';
-import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
+import { Sheet, SheetContent, SheetTrigger, SheetClose } from '@/components/ui/sheet';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -68,12 +67,6 @@ const Navbar = () => {
                   </button>
                 </SheetTrigger>
                 <SheetContent side="right" className="w-[80%] pt-14">
-                  <button 
-                    className="absolute right-4 top-4 p-2 rounded-full hover:bg-muted/50 transition-colors"
-                    aria-label="Close menu"
-                  >
-                    <X size={24} />
-                  </button>
                   <nav className="flex flex-col space-y-6 mt-8 text-lg">
                     <NavLinks language={language} mobile />
                     
