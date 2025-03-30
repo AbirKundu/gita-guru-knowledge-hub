@@ -1,4 +1,3 @@
-
 import React, { useState, useContext } from 'react';
 import { ChapterData } from '@/data/chapters';
 import { LanguageContext } from '@/providers/LanguageProvider';
@@ -57,7 +56,6 @@ const ChapterDetailCard = ({ chapter }: ChapterDetailCardProps) => {
           <div className="px-6 pb-6 pt-2">
             <div className="bg-secondary/30 rounded-xl p-5 mt-4">
               <Tabs defaultValue="summary" className="w-full">
-                {/* Modified TabsList to be responsive - vertical on mobile, horizontal on desktop */}
                 <TabsList className={cn(
                   "mb-4",
                   isMobile 
@@ -121,15 +119,18 @@ const ChapterDetailCard = ({ chapter }: ChapterDetailCardProps) => {
                   </ul>
                 </TabsContent>
                 
-                <TabsContent value="verses">
+                <TabsContent value="verses" className="space-y-6">
                   <h3 className="font-semibold mb-3">
                     {language === 'english' 
                       ? 'Notable Verses' 
                       : 'উল্লেখযোগ্য শ্লোক'}
                   </h3>
-                  <div className="space-y-4">
+                  <div className="space-y-4 pl-2">
                     {keyVerses.map((verse, idx) => (
-                      <div key={idx} className="border-l-2 border-primary/30 pl-3 py-1">
+                      <div 
+                        key={idx} 
+                        className="border-l-2 border-primary/30 pl-3 py-2 bg-background/50 rounded-md"
+                      >
                         <p className="italic text-sm mb-1 text-foreground/80">{verse.sanskrit}</p>
                         <p className="text-sm">{verse.translation}</p>
                         <p className="text-xs text-primary mt-1">{verse.reference}</p>
