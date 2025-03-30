@@ -82,7 +82,7 @@ const ChapterDetailCard = ({ chapter }: ChapterDetailCardProps) => {
                   </TabsTrigger>
                 </TabsList>
                 
-                <TabsContent value="summary" className="text-foreground/80">
+                <TabsContent value="summary" className="text-foreground/80 space-y-4">
                   <h3 className="font-semibold mb-2">
                     {language === 'english' 
                       ? `Chapter ${chapter.number} Overview` 
@@ -103,15 +103,15 @@ const ChapterDetailCard = ({ chapter }: ChapterDetailCardProps) => {
                   </div>
                 </TabsContent>
                 
-                <TabsContent value="teachings">
+                <TabsContent value="teachings" className="space-y-4">
                   <h3 className="font-semibold mb-3">
                     {language === 'english' 
                       ? 'Key Teachings' 
                       : 'মূল শিক্ষা'}
                   </h3>
-                  <ul className="space-y-2">
+                  <ul className="space-y-3">
                     {keyTeachings.map((teaching, idx) => (
-                      <li key={idx} className="flex gap-2">
+                      <li key={idx} className="flex gap-3 items-start">
                         <span className="text-primary shrink-0 mt-1">•</span>
                         <span>{teaching}</span>
                       </li>
@@ -119,21 +119,21 @@ const ChapterDetailCard = ({ chapter }: ChapterDetailCardProps) => {
                   </ul>
                 </TabsContent>
                 
-                <TabsContent value="verses" className="space-y-6">
+                <TabsContent value="verses" className="space-y-8">
                   <h3 className="font-semibold mb-3">
                     {language === 'english' 
                       ? 'Notable Verses' 
                       : 'উল্লেখযোগ্য শ্লোক'}
                   </h3>
-                  <div className="space-y-4 pl-2">
+                  <div className="space-y-6 pl-2">
                     {keyVerses.map((verse, idx) => (
                       <div 
                         key={idx} 
-                        className="border-l-2 border-primary/30 pl-3 py-2 bg-background/50 rounded-md"
+                        className="border-l-2 border-primary/30 pl-4 py-3 bg-background/50 rounded-md"
                       >
-                        <p className="italic text-sm mb-1 text-foreground/80">{verse.sanskrit}</p>
-                        <p className="text-sm">{verse.translation}</p>
-                        <p className="text-xs text-primary mt-1">{verse.reference}</p>
+                        <p className="italic text-sm mb-2 text-foreground/80">{verse.sanskrit}</p>
+                        <p className="text-sm mb-1">{verse.translation}</p>
+                        <p className="text-xs text-primary">{verse.reference}</p>
                       </div>
                     ))}
                   </div>
