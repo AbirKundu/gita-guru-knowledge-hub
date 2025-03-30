@@ -1,3 +1,4 @@
+
 import React, { useState, useContext } from 'react';
 import { ChapterData } from '@/data/chapters';
 import { LanguageContext } from '@/providers/LanguageProvider';
@@ -82,13 +83,13 @@ const ChapterDetailCard = ({ chapter }: ChapterDetailCardProps) => {
                   </TabsTrigger>
                 </TabsList>
                 
-                <TabsContent value="summary" className="text-foreground/80 space-y-4">
-                  <h3 className="font-semibold mb-2">
+                <TabsContent value="summary" className="text-foreground/80 space-y-6">
+                  <h3 className="font-semibold text-lg mb-2">
                     {language === 'english' 
                       ? `Chapter ${chapter.number} Overview` 
                       : `অধ্যায় ${chapter.number} পরিদর্শন`}
                   </h3>
-                  <p className="mb-4">{getChapterSummary(chapter.number, language)}</p>
+                  <p className="text-foreground/70 leading-relaxed mb-4">{getChapterSummary(chapter.number, language)}</p>
                   <div className="flex justify-between items-center text-sm mt-4">
                     <div>
                       {language === 'english' 
@@ -103,15 +104,15 @@ const ChapterDetailCard = ({ chapter }: ChapterDetailCardProps) => {
                   </div>
                 </TabsContent>
                 
-                <TabsContent value="teachings" className="space-y-4">
-                  <h3 className="font-semibold mb-3">
+                <TabsContent value="teachings" className="space-y-6">
+                  <h3 className="font-semibold text-lg mb-3">
                     {language === 'english' 
                       ? 'Key Teachings' 
                       : 'মূল শিক্ষা'}
                   </h3>
-                  <ul className="space-y-3">
+                  <ul className="space-y-4">
                     {keyTeachings.map((teaching, idx) => (
-                      <li key={idx} className="flex gap-3 items-start">
+                      <li key={idx} className="flex gap-3 items-start text-foreground/80 leading-relaxed">
                         <span className="text-primary shrink-0 mt-1">•</span>
                         <span>{teaching}</span>
                       </li>
@@ -120,7 +121,7 @@ const ChapterDetailCard = ({ chapter }: ChapterDetailCardProps) => {
                 </TabsContent>
                 
                 <TabsContent value="verses" className="space-y-8">
-                  <h3 className="font-semibold mb-3">
+                  <h3 className="font-semibold text-lg mb-3">
                     {language === 'english' 
                       ? 'Notable Verses' 
                       : 'উল্লেখযোগ্য শ্লোক'}
@@ -129,10 +130,10 @@ const ChapterDetailCard = ({ chapter }: ChapterDetailCardProps) => {
                     {keyVerses.map((verse, idx) => (
                       <div 
                         key={idx} 
-                        className="border-l-2 border-primary/30 pl-4 py-3 bg-background/50 rounded-md"
+                        className="border-l-2 border-primary/30 pl-4 py-4 bg-background/50 rounded-md space-y-2"
                       >
-                        <p className="italic text-sm mb-2 text-foreground/80">{verse.sanskrit}</p>
-                        <p className="text-sm mb-1">{verse.translation}</p>
+                        <p className="italic text-sm text-foreground/80 leading-relaxed">{verse.sanskrit}</p>
+                        <p className="text-sm text-foreground/90 leading-relaxed">{verse.translation}</p>
                         <p className="text-xs text-primary">{verse.reference}</p>
                       </div>
                     ))}
