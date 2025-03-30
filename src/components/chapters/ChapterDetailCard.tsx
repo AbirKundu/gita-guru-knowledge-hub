@@ -23,7 +23,7 @@ const ChapterDetailCard = ({ chapter }: ChapterDetailCardProps) => {
   const keyVerses = getKeyVerses(chapter.number, language);
   
   return (
-    <div id={chapter-${chapter.number}} className="bg-card border border-border rounded-xl shadow-sm overflow-hidden">
+    <div id={`chapter-${chapter.number}`} className="bg-card border border-border rounded-xl shadow-sm overflow-hidden">
       <Collapsible 
         open={isOpen} 
         onOpenChange={setIsOpen}
@@ -68,13 +68,13 @@ const ChapterDetailCard = ({ chapter }: ChapterDetailCardProps) => {
                       <span>{language === 'english' ? 'Summary' : 'সারাংশ'}</span>
                     </div>
                   </TabsTrigger>
-                  <TabsTrigger value="teachings" className={cn(isMobile && "justify-start w-full")}>
+                  <TabsTrigger value="teachings" className={cn(isMobile && "justify-start w-full mt-4")}>
                     <div className="flex items-center gap-2">
                       <ScrollText size={16} />
                       <span>{language === 'english' ? 'Key Teachings' : 'মূল শিক্ষা'}</span>
                     </div>
                   </TabsTrigger>
-                  <TabsTrigger value="verses" className={cn(isMobile && "justify-start w-full")}>
+                  <TabsTrigger value="verses" className={cn(isMobile && "justify-start w-full mt-4")}>
                     <div className="flex items-center gap-2">
                       <Sparkles size={16} />
                       <span>{language === 'english' ? 'Key Verses' : 'মূল শ্লোক'}</span>
@@ -85,25 +85,25 @@ const ChapterDetailCard = ({ chapter }: ChapterDetailCardProps) => {
                 <TabsContent value="summary" className="text-foreground/80 space-y-6">
                   <h3 className="font-semibold text-lg mb-2">
                     {language === 'english' 
-                      ? Chapter ${chapter.number} Overview 
-                      : অধ্যায় ${chapter.number} পরিদর্শন}
+                      ? `Chapter ${chapter.number} Overview` 
+                      : `অধ্যায় ${chapter.number} পরিদর্শন`}
                   </h3>
                   <p className="text-foreground/70 leading-relaxed mb-4">{getChapterSummary(chapter.number, language)}</p>
                   <div className="flex justify-between items-center text-sm mt-4">
                     <div>
                       {language === 'english' 
-                        ? Verses: ${getVerseCount(chapter.number)} 
-                        : শ্লোক: ${getVerseCount(chapter.number)}}
+                        ? `Verses: ${getVerseCount(chapter.number)}` 
+                        : `শ্লোক: ${getVerseCount(chapter.number)}`}
                     </div>
                     <div className="text-primary">
                       {language === 'english' 
-                        ? Sanskrit Name: ${getSanskritName(chapter.number)} 
-                        : সংস্কৃত নাম: ${getSanskritName(chapter.number)}}
+                        ? `Sanskrit Name: ${getSanskritName(chapter.number)}` 
+                        : `সংস্কৃত নাম: ${getSanskritName(chapter.number)}`}
                     </div>
                   </div>
                 </TabsContent>
                 
-                <TabsContent value="teachings" className="space-y-6">
+                <TabsContent value="teachings" className="space-y-6 mt-6">
                   <h3 className="font-semibold text-lg mb-3">
                     {language === 'english' 
                       ? 'Key Teachings' 
@@ -119,7 +119,7 @@ const ChapterDetailCard = ({ chapter }: ChapterDetailCardProps) => {
                   </ul>
                 </TabsContent>
                 
-                <TabsContent value="verses" className="space-y-8">
+                <TabsContent value="verses" className="space-y-8 mt-6">
                   <h3 className="font-semibold text-lg mb-3">
                     {language === 'english' 
                       ? 'Notable Verses' 
