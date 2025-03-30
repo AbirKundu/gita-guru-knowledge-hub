@@ -59,8 +59,8 @@ const ChapterDetailCard = ({ chapter }: ChapterDetailCardProps) => {
                 <TabsList className={cn(
   "mb-4",
   isMobile 
-    ? "flex flex-col space-y-2 w-full"  // Added space-y-2 for spacing
-    : "grid grid-cols-3 w-full"
+    ? "flex flex-col space-y-2 w-full"
+    : "grid grid-cols-4 w-full"  // Changed grid-cols-3 to grid-cols-4 to accommodate empty tab
 )}>
   <TabsTrigger value="summary" className={cn(isMobile && "justify-start w-full")}>
     <div className="flex items-center gap-2">
@@ -68,19 +68,23 @@ const ChapterDetailCard = ({ chapter }: ChapterDetailCardProps) => {
       <span>{language === 'english' ? 'Summary' : 'সারাংশ'}</span>
     </div>
   </TabsTrigger>
-  <TabsTrigger value="teachings" className="mt-2">  {/* Added consistent mt-2 */}
+  <TabsTrigger value="teachings" className="mt-2">
     <div className="flex items-center gap-2">
       <ScrollText size={16} />
       <span>{language === 'english' ? 'Key Teachings' : 'মূল শিক্ষা'}</span>
     </div>
   </TabsTrigger>
-  <TabsTrigger value="verses" className="mt-2">  {/* Ensured spacing */}
+  <TabsTrigger value="verses" className="mt-2">
     <div className="flex items-center gap-2">
       <Sparkles size={16} />
       <span>{language === 'english' ? 'Key Verses' : 'মূল শ্লোক'}</span>
     </div>
   </TabsTrigger>
+  <TabsTrigger value="empty" className="mt-2" disabled />  {/* Empty tab */}
 </TabsList>
+
+<TabsContent value="empty" className="hidden" /> {/* Empty content */}
+
 
                 
                 <TabsContent value="summary" className="text-foreground/80 space-y-6">
