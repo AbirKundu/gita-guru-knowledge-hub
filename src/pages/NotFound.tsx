@@ -18,8 +18,8 @@ const NotFound = () => {
     
     // Update document title
     document.title = language === 'english' 
-      ? '404 - Page Not Found | GitaGuru'
-      : '৪০৪ - পৃষ্ঠা পাওয়া যায়নি | গীতাগুরু';
+      ? 'Namashkar🙏🏻 - Page Not Found | GitaGuru'
+      : 'নমস্কার🙏🏻 - পৃষ্ঠা পাওয়া যায়নি | গীতাগুরু';
   }, [location.pathname, language]);
 
   return (
