@@ -57,87 +57,77 @@ const ChapterDetailCard = ({ chapter }: ChapterDetailCardProps) => {
             <div className="bg-secondary/30 rounded-xl p-5 mt-4">
               <Tabs defaultValue="summary" className="w-full">
                 <TabsList className={cn(
-                  "mb-4",
-                  isMobile 
-                    ? "flex flex-col space-y-1 w-full" 
-                    : "grid grid-cols-3 w-full"
+                  "mb-4 grid w-full",
+                  isMobile ? "grid-cols-1" : "grid-cols-3"
                 )}>
-                  <TabsTrigger value="summary" className={cn(isMobile && "justify-start w-full")}>
+                  <TabsTrigger value="summary" className="col-span-1">
                     <div className="flex items-center gap-2">
                       <BookOpen size={16} />
                       <span>{language === 'english' ? 'Summary' : 'সারাংশ'}</span>
                     </div>
                   </TabsTrigger>
-                  <TabsTrigger value="teachings" className={cn(isMobile && "justify-start w-full mt-4")}>
-                    <div className="flex items-center gap-2">
-                      <ScrollText size={16} />
-                      <span>{language === 'english' ? 'Key Teachings' : 'মূল শিক্ষা'}</span>
-                    </div>
-                  </TabsTrigger>
-                  <TabsTrigger value="verses" className={cn(isMobile && "justify-start w-full mt-4")}>
-                    <div className="flex items-center gap-2">
-                      <Sparkles size={16} />
-                      <span>{language === 'english' ? 'Key Verses' : 'মূল শ্লোক'}</span>
-                    </div>
-                  </TabsTrigger>
+                  {!isMobile && (
+                    <>
+                      <TabsTrigger value="teachings" className="col-span-1">
+                        <div className="flex items-center gap-2">
+                          <ScrollText size={16} />
+                          <span>{language === 'english' ? 'Key Teachings' : 'মূল শিক্ষা'}</span>
+                        </div>
+                      </TabsTrigger>
+                      <TabsTrigger value="verses" className="col-span-1">
+                        <div className="flex items-center gap-2">
+                          <Sparkles size={16} />
+                          <span>{language === 'english' ? 'Key Verses' : 'মূল শ্লোক'}</span>
+                        </div>
+                      </TabsTrigger>
+                    </>
+                  )}
                 </TabsList>
-                
-                <TabsContent value="summary" className="text-foreground/80 space-y-6">
-                  <h3 className="font-semibold text-lg mb-2">
-                    {language === 'english' 
-                      ? `Chapter ${chapter.number} Overview` 
-                      : `অধ্যায় ${chapter.number} পরিদর্শন`}
-                  </h3>
-                  <p className="text-foreground/70 leading-relaxed mb-4">{getChapterSummary(chapter.number, language)}</p>
-                  <div className="flex justify-between items-center text-sm mt-4">
-                    <div>
+
+                <div className={isMobile ? "space-y-4" : "grid grid-cols-2 gap-4"}>
+                  <TabsContent value="summary" className="text-foreground/80 space-y-6 col-span-2">
+                    <h3 className="font-semibold text-lg mb-2">
                       {language === 'english' 
-                        ? `Verses: ${getVerseCount(chapter.number)}` 
-                        : `শ্লোক: ${getVerseCount(chapter.number)}`}
-                    </div>
-                    <div className="text-primary">
-                      {language === 'english' 
-                        ? `Sanskrit Name: ${getSanskritName(chapter.number)}` 
-                        : `সংস্কৃত নাম: ${getSanskritName(chapter.number)}`}
-                    </div>
-                  </div>
-                </TabsContent>
-                
-                <TabsContent value="teachings" className="space-y-6 mt-6">
-                  <h3 className="font-semibold text-lg mb-3">
-                    {language === 'english' 
-                      ? 'Key Teachings' 
-                      : 'মূল শিক্ষা'}
-                  </h3>
-                  <ul className="space-y-4">
-                    {keyTeachings.map((teaching, idx) => (
-                      <li key={idx} className="flex gap-3 items-start text-foreground/80 leading-relaxed">
-                        <span className="text-primary shrink-0 mt-1">•</span>
-                        <span>{teaching}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </TabsContent>
-                
-                <TabsContent value="verses" className="space-y-8 mt-6">
-                  <h3 className="font-semibold text-lg mb-3">
-                    {language === 'english' 
-                      ? 'Notable Verses' 
-                      : 'উল্লেখযোগ্য শ্লোক'}
-                  </h3>
-                  <div className="space-y-6 pl-2">
-                    {keyVerses.map((verse, idx) => (
-                      <div 
-                        key={idx} 
-                        className="border-l-2 border-primary/30 pl-4 py-4 bg-background/50 rounded-md space-y-2"
-                      >
-                        <p className="italic text-sm text-foreground/80 leading-relaxed">{verse.sanskrit}</p>
-                        <p className="text-sm text-foreground/90 leading-relaxed">{verse.translation}</p>
-                        <p className="text-xs text-primary">{verse.reference}</p>
-                      </div>
-                    ))}
-                  </div>
-                </TabsContent>
+                        ? `Chapter ${chapter.number} Overview` 
+                        : `অধ্যায় ${chapter.number} পরিদর্শন`}
+                    </h3>
+                    <p className="text-foreground/70 leading-relaxed mb-4">{getChapterSummary(chapter.number, language)}</p>
+                  </TabsContent>
+                  {isMobile && (
+                    <>
+                      <TabsContent value="teachings" className="space-y-6">
+                        <h3 className="font-semibold text-lg mb-3">
+                          {language === 'english' ? 'Key Teachings' : 'মূল শিক্ষা'}
+                        </h3>
+                        <ul className="space-y-4">
+                          {keyTeachings.map((teaching, idx) => (
+                            <li key={idx} className="flex gap-3 items-start text-foreground/80 leading-relaxed">
+                              <span className="text-primary shrink-0 mt-1">•</span>
+                              <span>{teaching}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </TabsContent>
+                      <TabsContent value="verses" className="space-y-8">
+                        <h3 className="font-semibold text-lg mb-3">
+                          {language === 'english' ? 'Notable Verses' : 'উল্লেখযোগ্য শ্লোক'}
+                        </h3>
+                        <div className="space-y-6 pl-2">
+                          {keyVerses.map((verse, idx) => (
+                            <div 
+                              key={idx} 
+                              className="border-l-2 border-primary/30 pl-4 py-4 bg-background/50 rounded-md space-y-2"
+                            >
+                              <p className="italic text-sm text-foreground/80 leading-relaxed">{verse.sanskrit}</p>
+                              <p className="text-sm text-foreground/90 leading-relaxed">{verse.translation}</p>
+                              <p className="text-xs text-primary">{verse.reference}</p>
+                            </div>
+                          ))}
+                        </div>
+                      </TabsContent>
+                    </>
+                  )}
+                </div>
               </Tabs>
             </div>
           </div>
