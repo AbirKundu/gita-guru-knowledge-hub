@@ -61,8 +61,8 @@ const ChapterDetailCard = ({ chapter }: ChapterDetailCardProps) => {
                   isMobile ? "grid-cols-3 text-center border-t border-b py-2" : "grid-cols-3"
                 )}>
                   <TabsTrigger value="summary">{language === 'english' ? 'Summary' : 'সারাংশ'}</TabsTrigger>
-                  <TabsTrigger value="teachings">{language === 'english' ? 'Key Teachings' : 'মূল শিক্ষা'}</TabsTrigger>
-                  <TabsTrigger value="verses">{language === 'english' ? 'Key Verses' : 'মূল শ্লোক'}</TabsTrigger>
+                  <TabsTrigger value="teachings">{language === 'english' ? 'Teachings' : 'মূল শিক্ষা'}</TabsTrigger>
+                  <TabsTrigger value="verses">{language === 'english' ? 'Verses' : 'মূল শ্লোক'}</TabsTrigger>
                 </TabsList>
                 
                 <TabsContent value="summary" className="text-foreground/80 space-y-6">
