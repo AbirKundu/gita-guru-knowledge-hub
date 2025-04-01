@@ -2,7 +2,7 @@ import React, { useState, useContext } from 'react';
 import { ChapterData } from '@/data/chapters';
 import { LanguageContext } from '@/providers/LanguageProvider';
 import { cn } from '@/lib/utils';
-import { ChevronRight, ChevronDown } from 'lucide-react';
+import { ChevronRight, ChevronDown, BookOpen, FileText, Sparkles } from 'lucide-react';
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { getChapterSummary, getVerseCount, getSanskritName } from '@/utils/chapterUtils';
@@ -60,16 +60,19 @@ const ChapterDetailCard = ({ chapter }: ChapterDetailCardProps) => {
                   "mb-4 grid w-full",
                   isMobile ? "grid-cols-3 text-center gap-2" : "grid-cols-3"
                 )}>
-                  {!isMobile && (
+                  {!isMobile ? (
                     <>
-                      <img src="/path/to/summary-logo.png" alt="Summary Logo" className="w-6 h-6 inline-block" />
-                      <img src="/path/to/teachings-logo.png" alt="Teachings Logo" className="w-6 h-6 inline-block" />
-                      <img src="/path/to/verses-logo.png" alt="Verses Logo" className="w-6 h-6 inline-block" />
+                      <TabsTrigger value="summary"><BookOpen className="inline-block w-5 h-5 mr-2" /> {language === 'english' ? 'Summary' : 'সারাংশ'}</TabsTrigger>
+                      <TabsTrigger value="teachings"><FileText className="inline-block w-5 h-5 mr-2" /> {language === 'english' ? 'Key Teachings' : 'মূল শিক্ষা'}</TabsTrigger>
+                      <TabsTrigger value="verses"><Sparkles className="inline-block w-5 h-5 mr-2" /> {language === 'english' ? 'Key Verses' : 'মূল শ্লোক'}</TabsTrigger>
+                    </>
+                  ) : (
+                    <>
+                      <TabsTrigger value="summary">{language === 'english' ? 'Summary' : 'সারাংশ '}</TabsTrigger>
+                      <TabsTrigger value="teachings">{language === 'english' ? 'Teachings' : ' মূল শিক্ষা'}</TabsTrigger>
+                      <TabsTrigger value="verses">{language === 'english' ? 'Verses' : ' মূল শ্লোক '}</TabsTrigger>
                     </>
                   )}
-                  <TabsTrigger value="summary">{language === 'english' ? 'Summary|' : 'সারাংশ|'}</TabsTrigger>
-                  <TabsTrigger value="teachings">{language === 'english' ? 'KTeachings|' : 'মূল শিক্ষা|'}</TabsTrigger>
-                  <TabsTrigger value="verses">{language === 'english' ? 'KVerses' : 'মূল শ্লোক'}</TabsTrigger>
                 </TabsList>
                 
                 <TabsContent value="summary" className="text-foreground/80 space-y-6">
