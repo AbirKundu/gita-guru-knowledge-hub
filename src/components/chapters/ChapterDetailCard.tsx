@@ -30,12 +30,12 @@ const ChapterDetailCard = ({ chapter }: ChapterDetailCardProps) => {
         className="w-full"
       >
         <div className="p-6">
-          <div className="flex items-start gap-4">
-            <div className="w-12 h-12 flex-shrink-0 flex items-center justify-center bg-primary/10 text-primary rounded-full text-xl font-bold">
+          <div className="flex flex-col items-center">
+            <div className="w-12 h-12 flex items-center justify-center bg-primary/10 text-primary rounded-full text-xl font-bold">
               {chapter.number}
             </div>
-            <div className="flex-1">
-              <div className="flex items-start justify-between">
+            <div className="text-center mt-3 w-full">
+              <div className="flex items-center justify-between">
                 <h2 className="text-xl font-semibold mb-3">{chapter.title}</h2>
                 <CollapsibleTrigger asChild>
                   <button className="flex items-center justify-center w-8 h-8 rounded-full hover:bg-secondary transition-colors">
@@ -68,9 +68,9 @@ const ChapterDetailCard = ({ chapter }: ChapterDetailCardProps) => {
                     </>
                   ) : (
                     <>
-                      <TabsTrigger value="summary">{language === 'english' ? 'Summary' : 'সারাংশ '}</TabsTrigger>
-                      <TabsTrigger value="teachings">{language === 'english' ? 'Teachings' : ' মূল শিক্ষা'}</TabsTrigger>
-                      <TabsTrigger value="verses">{language === 'english' ? 'Verses' : ' মূল শ্লোক '}</TabsTrigger>
+                      <TabsTrigger value="summary">{language === 'english' ? 'Summary' : 'সারাংশ'}</TabsTrigger>
+                      <TabsTrigger value="teachings">{language === 'english' ? 'Key Teachings' : 'মূল শিক্ষা'}</TabsTrigger>
+                      <TabsTrigger value="verses">{language === 'english' ? 'Key Verses' : 'মূল শ্লোক'}</TabsTrigger>
                     </>
                   )}
                 </TabsList>
