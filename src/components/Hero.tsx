@@ -3,6 +3,7 @@ import React, { useContext } from 'react';
 import { cn } from '@/lib/utils';
 import { ArrowRight } from 'lucide-react';
 import { LanguageContext } from '@/providers/LanguageProvider';
+import { Link } from 'react-router-dom';
 
 const Hero = () => {
   const { language } = useContext(LanguageContext);
@@ -41,12 +42,12 @@ const Hero = () => {
               {language === 'english' ? 'Begin Journey' : 'যাত্রা শুরু করুন'}
               <ArrowRight size={16} className="transition-transform duration-300 group-hover:translate-x-1" />
             </a>
-            <a 
-              href="#chapters" 
+            <Link 
+              to="/chapters" 
               className="px-6 py-3 border border-border rounded-lg hover:bg-secondary transition-all duration-200"
             >
               {language === 'english' ? 'Explore Chapters' : 'অধ্যায়গুলি অন্বেষণ করুন'}
-            </a>
+            </Link>
           </div>
         </div>
       </div>

@@ -30,10 +30,7 @@ const content = {
         description: "The Gita's emphasis on self-discipline and continuous self-improvement offers a framework for personal development and resilience.",
         icon: <Dumbbell size={24} />,
       },
-    ],
-    journey: "Begin Your Journey of Discovery",
-    explore: "Explore the profound teachings of the Bhagavad Gita and discover how its timeless wisdom can transform your life, bringing peace, purpose, and clarity.",
-    buttons: ["Explore Chapters", "Learn Philosophy"],
+    ]
   },
   bn: {
     toggleLabel: " বাংলা ",
@@ -61,10 +58,7 @@ const content = {
         description: "আত্মশৃঙ্খলা এবং ধারাবাহিক আত্মউন্নয়নের প্রতি গীতার গুরুত্ব ব্যক্তিগত বিকাশ এবং স্থিতিস্থাপকতার একটি কাঠামো প্রদান করে।",
         icon: <Dumbbell size={24} />,
       },
-    ],
-    journey: "আপনার আবিষ্কারের যাত্রা শুরু করুন",
-    explore: "ভগবদ গীতার গভীর শিক্ষা অন্বেষণ করুন এবং কিভাবে এর চিরন্তন জ্ঞান আপনার জীবন রূপান্তরিত করতে পারে, শান্তি, উদ্দেশ্য এবং স্পষ্টতা আনতে পারে তা আবিষ্কার করুন।",
-    buttons: ["অধ্যায়গুলি অন্বেষণ করুন", "দর্শন শিখুন"],
+    ]
   },
 };
 
@@ -101,18 +95,6 @@ const ModernRelevance = () => {
               index={index} 
             />
           ))}
-        </div>
-
-        <div className="mt-12 md:mt-16">
-          <h3 className="text-xl md:text-2xl font-semibold mb-3">{data.journey}</h3>
-          <p className="text-foreground/80 max-w-2xl mx-auto mb-6">{data.explore}</p>
-          <div className="flex flex-col sm:flex-row justify-center gap-4">
-            {data.buttons.map((btn, i) => (
-              <button key={i} className="px-6 py-3 bg-primary text-white rounded-lg shadow-md hover:bg-primary/80 transition">
-                {btn}
-              </button>
-            ))}
-          </div>
         </div>
       </div>
     </section>
