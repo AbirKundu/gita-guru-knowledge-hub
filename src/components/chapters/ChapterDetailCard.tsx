@@ -58,7 +58,7 @@ const ChapterDetailCard = ({ chapter }: ChapterDetailCardProps) => {
               <Tabs defaultValue="summary" className="w-full">
                 <TabsList className={cn(
                   "mb-4 grid w-full",
-                  isMobile ? "grid-cols-3 text-center" : "grid-cols-3"
+                  isMobile ? "grid-cols-3 text-center border-t border-b py-2" : "grid-cols-3"
                 )}>
                   <TabsTrigger value="summary">{language === 'english' ? 'Summary' : 'সারাংশ'}</TabsTrigger>
                   <TabsTrigger value="teachings">{language === 'english' ? 'Key Teachings' : 'মূল শিক্ষা'}</TabsTrigger>
