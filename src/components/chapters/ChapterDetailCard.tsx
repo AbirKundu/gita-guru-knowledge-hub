@@ -58,11 +58,18 @@ const ChapterDetailCard = ({ chapter }: ChapterDetailCardProps) => {
               <Tabs defaultValue="summary" className="w-full">
                 <TabsList className={cn(
                   "mb-4 grid w-full",
-                  isMobile ? "grid-cols-3 text-center border-t border-b py-2" : "grid-cols-3"
+                  isMobile ? "grid-cols-3 text-center gap-2" : "grid-cols-3"
                 )}>
-                  <TabsTrigger value="summary">{language === 'english' ? 'Summary' : 'সারাংশ'}</TabsTrigger>
-                  <TabsTrigger value="teachings">{language === 'english' ? 'Teachings' : 'মূল শিক্ষা'}</TabsTrigger>
-                  <TabsTrigger value="verses">{language === 'english' ? 'Verses' : 'মূল শ্লোক'}</TabsTrigger>
+                  {!isMobile && (
+                    <>
+                      <img src="/path/to/summary-logo.png" alt="Summary Logo" className="w-6 h-6 inline-block" />
+                      <img src="/path/to/teachings-logo.png" alt="Teachings Logo" className="w-6 h-6 inline-block" />
+                      <img src="/path/to/verses-logo.png" alt="Verses Logo" className="w-6 h-6 inline-block" />
+                    </>
+                  )}
+                  <TabsTrigger value="summary">{language === 'english' ? 'Summary|' : 'সারাংশ|'}</TabsTrigger>
+                  <TabsTrigger value="teachings">{language === 'english' ? 'KTeachings|' : 'মূল শিক্ষা|'}</TabsTrigger>
+                  <TabsTrigger value="verses">{language === 'english' ? 'KVerses' : 'মূল শ্লোক'}</TabsTrigger>
                 </TabsList>
                 
                 <TabsContent value="summary" className="text-foreground/80 space-y-6">
