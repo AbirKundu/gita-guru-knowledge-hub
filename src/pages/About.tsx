@@ -1,4 +1,3 @@
-
 import React, { useEffect, useContext } from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
@@ -25,12 +24,12 @@ const AboutPage = () => {
           </h1>
           <p className="text-lg text-foreground/80 max-w-3xl mx-auto text-center mb-12">
             {language === 'english' 
-              ? 'GitaGuru was created by '
+              ? 'GitaGuru was created by ' 
               : 'গীতাগুরু তৈরি করেছেন '} 
             <span className="font-semibold">"Abir Kundu"</span> 
             {language === 'english' 
-              ? ' to share the timeless wisdom of the Bhagavad Gita with the world.'
-              : ' বিশ্বের সাথে ভগবদ্গীতার চিরন্তন জ্ঞান ভাগ করে নেওয়ার জন্য।'}
+              ? ' with a heartfelt mission—to bring the timeless wisdom of the Bhagavad Gita to the world in a way that is both modern and deeply spiritual. This sacred scripture, filled with divine knowledge and eternal truths, has guided humanity for centuries, and GitaGuru strives to make it accessible to all.'
+              : 'একটি আন্তরিক লক্ষ্য নিয়ে—ভগবদ্গীতার চিরন্তন জ্ঞানকে এমনভাবে বিশ্বের সামনে তুলে ধরা, যা আধুনিক এবং গভীরভাবে আধ্যাত্মিক উভয়ই। এই পবিত্র গ্রন্থটি, যা ঐশ্বরিক জ্ঞান এবং চিরন্তন সত্যে পূর্ণ, শতাব্দীর পর শতাব্দী ধরে মানবজাতিকে পথ দেখিয়ে এসেছে, এবং গীতাগুরু এই জ্ঞানকে সবার কাছে সহজলভ্য করার জন্য প্রচেষ্টা চালিয়ে যাচ্ছে।'}
           </p>
           
           <div className="max-w-3xl mx-auto">
@@ -40,13 +39,21 @@ const AboutPage = () => {
               </h2>
               <p className="text-foreground/80 mb-4">
                 {language === 'english' 
-                  ? 'This project is dedicated to making the profound teachings of the Bhagavad Gita accessible to everyone. All rights for this website and its content are reserved to Abir Kundu.'
-                  : 'এই প্রকল্পটি ভগবদ্গীতার গভীর শিক্ষাগুলি সবার কাছে সহজলভ্য করার জন্য উৎসর্গীকৃত। এই ওয়েবসাইট এবং এর বিষয়বস্তুর সমস্ত অধিকার অবির কুন্ডুর কাছে সংরক্ষিত।'}
+                  ? 'This project is more than just a website—it is a journey of enlightenment. The Bhagavad Gita is not just a book; it is a compass for life, guiding us through challenges, self-doubt, and moral dilemmas. It teaches us the art of righteous living, the power of devotion, and the strength of unwavering faith.'
+                  : 'এই প্রকল্পটি কেবল একটি ওয়েবসাইট নয়—এটি এক আলোকিত যাত্রা। ভগবদ্গীতা শুধুমাত্র একটি গ্রন্থ নয়; এটি জীবনের একটি দিকনির্দেশক, যা আমাদের চ্যালেঞ্জ, আত্মসন্দেহ এবং নৈতিক সমস্যার মধ্য দিয়ে পথ দেখায়। এটি আমাদের ন্যায়সঙ্গত জীবনযাত্রার কৌশল, ভক্তির শক্তি এবং অবিচল বিশ্বাসের শক্তি শেখায়।'}
               </p>
-              <p className="text-foreground/80">
+              <p className="text-foreground/80 mb-4">
                 {language === 'english' 
-                  ? 'The GitaGuru platform aims to present this ancient wisdom in a modern, accessible format while maintaining the authenticity and depth of the original teachings.'
-                  : 'গীতাগুরু প্ল্যাটফর্মের লক্ষ্য এই প্রাচীন জ্ঞানকে একটি আধুনিক, সহজলভ্য ফর্ম্যাটে উপস্থাপন করা, যখন মূল শিক্ষার প্রামাণ্যতা এবং গভীরতা বজায় রাখা।'}
+                  ? 'At GitaGuru, we believe that the wisdom of the Gita is not bound by time, religion, or background—it is a universal message for every soul seeking purpose, clarity, and inner peace. Whether you are facing struggles, searching for truth, or simply wish to elevate your understanding of life, the Gita will illuminate your path like a divine lamp in the darkness.'
+                  : 'গীতাগুরুর বিশ্বাস, গীতার জ্ঞান সময়, ধর্ম বা পটভূমির দ্বারা সীমাবদ্ধ নয়—এটি প্রতিটি আত্মার জন্য একটি সর্বজনীন বার্তা, যারা জীবনের উদ্দেশ্য, স্পষ্টতা এবং আভ্যন্তরীণ শান্তি খুঁজছে। আপনি যদি সংগ্রাম করছেন, সত্য খুঁজছেন, অথবা শুধু জীবনের বোঝাপড়া বাড়াতে চান, গীতা আপনাকে অন্ধকারের মধ্যে একটি ঐশ্বরিক প্রদীপের মতো আলোকিত করবে।'}
+              </p>
+              <p className="text-foreground/80 font-semibold text-center text-lg">
+                {language === 'english' 
+                  ? 'Let us embrace this treasure of knowledge, apply its teachings to our daily lives, and embark on a journey towards self-realization, wisdom, and ultimate bliss. May the words of Krishna awaken the divinity within us all. 🙏'
+                  : 'আসুন এই জ্ঞানের রত্নকে গ্রহণ করি, এর শিক্ষাগুলোকে আমাদের দৈনন্দিন জীবনে প্রয়োগ করি, এবং আত্ম-উপলব্ধি, জ্ঞান এবং চূড়ান্ত আনন্দের পথে যাত্রা শুরু করি। কৃষ্ণের বাণী আমাদের সকলের মধ্যে দিভ্যত্ব জাগিয়ে তুলুক। 🙏'}
+              </p>
+              <p className="text-center text-xl font-bold mt-6 text-primary">
+                {language === 'english' ? '📖 Read. Reflect. Transform. Hare Krishna! 🚀✨' : '📖 পড়ুন। মনোযোগ দিন। পরিবর্তিত হন। হরে কৃষ্ণ! 🚀✨'}
               </p>
             </div>
           </div>
