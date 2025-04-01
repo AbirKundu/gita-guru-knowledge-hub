@@ -69,8 +69,8 @@ const ChapterDetailCard = ({ chapter }: ChapterDetailCardProps) => {
                   ) : (
                     <>
                       <TabsTrigger value="summary">{language === 'english' ? 'Summary' : 'সারাংশ'}</TabsTrigger>
-                      <TabsTrigger value="teachings">{language === 'english' ? 'Key Teachings' : 'মূল শিক্ষা'}</TabsTrigger>
-                      <TabsTrigger value="verses">{language === 'english' ? 'Key Verses' : 'মূল শ্লোক'}</TabsTrigger>
+                      <TabsTrigger value="teachings">{language === 'english' ? ' Points ' : 'মূল শিক্ষা'}</TabsTrigger>
+                      <TabsTrigger value="verses">{language === 'english' ? 'Verses' : 'মূল শ্লোক'}</TabsTrigger>
                     </>
                   )}
                 </TabsList>
