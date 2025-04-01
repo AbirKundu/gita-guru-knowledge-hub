@@ -2,7 +2,7 @@ import React, { useState, useContext } from 'react';
 import { ChapterData } from '@/data/chapters';
 import { LanguageContext } from '@/providers/LanguageProvider';
 import { cn } from '@/lib/utils';
-import { ChevronRight, ChevronDown, BookOpen, ScrollText, Sparkles } from 'lucide-react';
+import { ChevronRight, ChevronDown } from 'lucide-react';
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { getChapterSummary, getVerseCount, getSanskritName } from '@/utils/chapterUtils';
@@ -60,18 +60,9 @@ const ChapterDetailCard = ({ chapter }: ChapterDetailCardProps) => {
                   "mb-4 grid w-full",
                   isMobile ? "grid-cols-3 text-center" : "grid-cols-3"
                 )}>
-                  <TabsTrigger value="summary" className="flex flex-col items-center">
-                    <BookOpen size={20} />
-                    <span>{language === 'english' ? 'Summary' : 'সারাংশ'}</span>
-                  </TabsTrigger>
-                  <TabsTrigger value="teachings" className="flex flex-col items-center">
-                    <ScrollText size={20} />
-                    <span>{language === 'english' ? 'Key Teachings' : 'মূল শিক্ষা'}</span>
-                  </TabsTrigger>
-                  <TabsTrigger value="verses" className="flex flex-col items-center">
-                    <Sparkles size={20} />
-                    <span>{language === 'english' ? 'Key Verses' : 'মূল শ্লোক'}</span>
-                  </TabsTrigger>
+                  <TabsTrigger value="summary">{language === 'english' ? 'Summary' : 'সারাংশ'}</TabsTrigger>
+                  <TabsTrigger value="teachings">{language === 'english' ? 'Key Teachings' : 'মূল শিক্ষা'}</TabsTrigger>
+                  <TabsTrigger value="verses">{language === 'english' ? 'Key Verses' : 'মূল শ্লোক'}</TabsTrigger>
                 </TabsList>
                 
                 <TabsContent value="summary" className="text-foreground/80 space-y-6">
@@ -104,7 +95,6 @@ const ChapterDetailCard = ({ chapter }: ChapterDetailCardProps) => {
                   <ul className="space-y-4">
                     {keyTeachings.map((teaching, idx) => (
                       <li key={idx} className="flex gap-3 items-start text-foreground/80 leading-relaxed">
-                        <span className="text-primary shrink-0 mt-1">•</span>
                         <span>{teaching}</span>
                       </li>
                     ))}
