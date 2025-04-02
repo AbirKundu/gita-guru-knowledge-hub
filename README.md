@@ -30,7 +30,7 @@ Prerequisites
 #🚶Steps  
 -> bash
 # Clone the repository
-git clone https://github.com/AbirKundu/Gita-Guru.git
+gh repo clone AbirKundu/gita-guru-knowledge-hub
 
 # Navigate to project directory
 cd Gita-Guru
