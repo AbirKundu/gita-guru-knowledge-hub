@@ -1,11 +1,12 @@
-📖 Gita Guru – Your Ultimate Bhagavad Gita Companion Made by Abir Kundu 🙏  
+#📖 Gita Guru – Your Ultimate Bhagavad Gita Companion Made by Abir Kundu 🙏  
 
 ![Gita Guru Banner](https://github.com/AbirKundu/gita-guru-knowledge-hub/blob/main/Screenshot%202025-04-03%20000427.png) 
+![Gita Guru Banner](https://github.com/AbirKundu/gita-guru-knowledge-hub/blob/main/Screenshot%202025-04-03%20000449.png)
 
-🌟 About Gita Guru  
+#🌟 About Gita Guru  
 **Gita Guru** is a powerful and interactive application designed to help users explore the timeless wisdom of the **Bhagavad Gita**. Whether you're a spiritual seeker, a student of philosophy, or simply looking for daily inspiration, Gita Guru provides an intuitive and enriching experience.  
 
-🕉 **Key Features:**  
+#🕉 **Key Features:**  
 ✔️ **Complete Bhagavad Gita** – Read all 700 verses with translations and explanations  
 ✔️ **Multiple Translations** – Explore verses in **Sanskrit, English, Hindi, and more**  
 ✔️ **Daily Gita Verses** – Get a new verse every day with deep insights  
@@ -21,17 +22,13 @@
 🔹 **Authentication:** Firebase / JWT  
 🔹 **Hosting:** Vercel / Netlify  
 
-📸 Screenshots  
-📌 (https://github.com/AbirKundu/gita-guru-knowledge-hub/blob/main/Screenshot%202025-04-03%20000449.png)
 
-
-🎯 How to Install & Run  
+#🎯 How to Install & Run  
 Prerequisites  
 - Node.js and npm installed  
 
-🚶Steps  
-
-bash
+#🚶Steps  
+-> bash
 # Clone the repository
 git clone https://github.com/AbirKundu/Gita-Guru.git
 
