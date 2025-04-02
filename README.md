@@ -1,69 +1,45 @@
-# Welcome to your Lovable project
+📖 Gita Guru – Your Ultimate Bhagavad Gita Companion Made by Abir Kundu 🙏  
 
-## Project info
+![Gita Guru Banner](https://github.com/AbirKundu/gita-guru-knowledge-hub/blob/main/Screenshot%202025-04-03%20000427.png) 
 
-**URL**: https://lovable.dev/projects/8585bb4c-9437-4802-ae87-252063757a66
+🌟 About Gita Guru  
+**Gita Guru** is a powerful and interactive application designed to help users explore the timeless wisdom of the **Bhagavad Gita**. Whether you're a spiritual seeker, a student of philosophy, or simply looking for daily inspiration, Gita Guru provides an intuitive and enriching experience.  
 
-## How can I edit this code?
+🕉 **Key Features:**  
+✔️ **Complete Bhagavad Gita** – Read all 700 verses with translations and explanations  
+✔️ **Multiple Translations** – Explore verses in **Sanskrit, English, Hindi, and more**  
+✔️ **Daily Gita Verses** – Get a new verse every day with deep insights  
+✔️ **Search & Bookmark** – Easily find and save your favorite verses  
+✔️ **Audio Mode** – Listen to the **Gita recitations** for a divine experience  
+✔️ **Dark & Light Mode** – Customize the theme for a comfortable reading experience  
+✔️ **Verse-by-Verse Explanation** – Understand the deeper meanings with commentary  
 
-There are several ways of editing your application.
+## 🚀 Tech Stack  
+🔹 **Frontend:** HTML, CSS, JavaScript, React  
+🔹 **Backend:** Node.js, Express.js  
+🔹 **Database:** MongoDB / MySQL (as per implementation)  
+🔹 **Authentication:** Firebase / JWT  
+🔹 **Hosting:** Vercel / Netlify  
 
-**Use Lovable**
+📸 Screenshots  
+📌 (https://github.com/AbirKundu/gita-guru-knowledge-hub/blob/main/Screenshot%202025-04-03%20000449.png)
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/8585bb4c-9437-4802-ae87-252063757a66) and start prompting.
 
-Changes made via Lovable will be committed automatically to this repo.
+🎯 How to Install & Run  
+Prerequisites  
+- Node.js and npm installed  
 
-**Use your preferred IDE**
+🚶Steps  
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+bash
+# Clone the repository
+git clone https://github.com/AbirKundu/Gita-Guru.git
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+# Navigate to project directory
+cd Gita-Guru
 
-Follow these steps:
+# Install dependencies
+npm install
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
-
-**Edit a file directly in GitHub**
-
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
-
-**Use GitHub Codespaces**
-
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
-
-This project is built with .
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/8585bb4c-9437-4802-ae87-252063757a66) and click on Share -> Publish.
-
-## I want to use a custom domain - is that possible?
-
-We don't support custom domains (yet). If you want to deploy your project under your own domain then we recommend using Netlify. Visit our docs for more details: [Custom domains](https://docs.lovable.dev/tips-tricks/custom-domain/)
+# Start the app
+npm start
