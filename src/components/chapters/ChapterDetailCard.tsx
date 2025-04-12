@@ -1,4 +1,5 @@
-import React, { useState, useContext } from 'react';
+
+import React, { useState, useContext, useEffect } from 'react';
 import { ChapterData } from '@/data/chapters';
 import { LanguageContext } from '@/providers/LanguageProvider';
 import { cn } from '@/lib/utils';
@@ -21,6 +22,32 @@ const ChapterDetailCard = ({ chapter }: ChapterDetailCardProps) => {
   
   const keyTeachings = getKeyTeachings(chapter.number, language);
   const keyVerses = getKeyVerses(chapter.number, language);
+  
+  // Check if this chapter should be opened when the page loads (if the URL has the chapter hash)
+  useEffect(() => {
+    const handleHashChange = () => {
+      const hash = window.location.hash;
+      if (hash === `#chapter-${chapter.number}`) {
+        setIsOpen(true);
+        
+        // Ensure the element is in view
+        setTimeout(() => {
+          const element = document.getElementById(`chapter-${chapter.number}`);
+          if (element) {
+            element.scrollIntoView({ behavior: 'smooth' });
+          }
+        }, 300);
+      }
+    };
+    
+    // Check on initial load and when hash changes
+    handleHashChange();
+    window.addEventListener('hashchange', handleHashChange);
+    
+    return () => {
+      window.removeEventListener('hashchange', handleHashChange);
+    };
+  }, [chapter.number]);
   
   return (
     <div id={`chapter-${chapter.number}`} className="bg-card border border-border rounded-xl shadow-sm overflow-hidden">

@@ -1,5 +1,5 @@
 
-import React, { useEffect, useContext } from 'react';
+import React, { useEffect, useContext, useRef } from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { LanguageContext } from '@/providers/LanguageProvider';
@@ -9,6 +9,7 @@ import ChapterDetailCard from '@/components/chapters/ChapterDetailCard';
 
 const ChaptersPage = () => {
   const { language } = useContext(LanguageContext);
+  const contentRef = useRef<HTMLDivElement>(null);
   
   useEffect(() => {
     // Scroll to top when component mounts
@@ -16,6 +17,17 @@ const ChaptersPage = () => {
     
     // Update document title
     document.title = language === 'english' ? 'Chapters | GitaGuru' : 'অধ্যায়সমূহ | গীতাগুরু';
+    
+    // Check if there's a hash in the URL and scroll to that chapter after a short delay
+    const hash = window.location.hash;
+    if (hash && hash.includes('chapter-')) {
+      setTimeout(() => {
+        const element = document.querySelector(hash);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 500);
+    }
   }, [language]);
 
   // Get chapters data
@@ -24,7 +36,7 @@ const ChaptersPage = () => {
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
-      <main className="pt-24 pb-20 px-4 md:px-6">
+      <main className="pt-24 pb-20 px-4 md:px-6" ref={contentRef}>
         <div className="container mx-auto max-w-6xl">
           <h1 className="text-4xl md:text-5xl font-bold mb-6 text-center">
             {language === 'english' ? 'Chapters of the Bhagavad Gita' : 'ভগবদ্গীতার অধ্যায়সমূহ'}

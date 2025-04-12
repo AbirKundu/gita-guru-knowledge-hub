@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { Menu, X, Globe } from 'lucide-react';
@@ -27,6 +28,9 @@ const Navbar = () => {
         'fixed top-0 left-0 w-full z-50 transition-all duration-300 ease-in-out py-6',
         isScrolled ? 'glass py-4' : 'bg-transparent custom-blur'
       )}
+      style={{ 
+        transition: 'transform 0.4s ease-in-out, opacity 0.4s ease-in-out, background-color 0.3s ease-in-out, padding 0.3s ease-in-out'
+      }}
     >
       <div className="container mx-auto px-4 md:px-6 lg:px-8">
         <div className="flex items-center justify-between">
