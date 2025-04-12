@@ -67,16 +67,16 @@ const Footer = () => {
             <h3 className="font-medium mb-4">{language === 'english' ? 'Connect' : 'যোগাযোগ'}</h3>
             <ul className="space-y-2 text-sm">
               <li><a href="#" className="text-foreground/70 hover:text-primary transition-colors duration-200">
-                {language === 'english' ? 'Contact Us' : 'যোগাযোগ করুন'}
+                {language === 'english' ? 'abircse22@gmail.com' : 'abircse22@gmail.com'}
               </a></li>
               <li><a href="#" className="text-foreground/70 hover:text-primary transition-colors duration-200">
-                {language === 'english' ? 'Newsletter' : 'নিউজলেটার'}
+                {language === 'english' ? 'Mirpur DOHS' : 'মিরপুর ডিওএইচস'}
               </a></li>
               <li><a href="#" className="text-foreground/70 hover:text-primary transition-colors duration-200">
-                {language === 'english' ? 'Community' : 'সম্প্রদায়'}
+                {language === 'english' ? 'Avenue 2' : 'এভিনিউ ২'}
               </a></li>
               <li><a href="#" className="text-foreground/70 hover:text-primary transition-colors duration-200">
-                {language === 'english' ? 'Events' : 'অনুষ্ঠান'}
+                {language === 'english' ? 'Road 12' : 'রোড ১২'}
               </a></li>
             </ul>
           </div>
