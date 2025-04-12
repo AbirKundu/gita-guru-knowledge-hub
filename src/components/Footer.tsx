@@ -1,4 +1,3 @@
-
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { LanguageContext } from '@/providers/LanguageProvider';
@@ -67,7 +66,7 @@ const Footer = () => {
             <h3 className="font-medium mb-4">{language === 'english' ? 'Connect' : 'যোগাযোগ'}</h3>
             <ul className="space-y-2 text-sm">
               <li><a href="#" className="text-foreground/70 hover:text-primary transition-colors duration-200">
-                {language === 'english' ? 'abircse22@gmail.com' : 'abircse22@gmail.com'}
+                abircse22@gmail.com
               </a></li>
               <li><a href="#" className="text-foreground/70 hover:text-primary transition-colors duration-200">
                 {language === 'english' ? 'Mirpur DOHS' : 'মিরপুর ডিওএইচস'}
@@ -81,28 +80,30 @@ const Footer = () => {
             </ul>
           </div>
         </div>
-        
+
         <div className="border-t border-border mt-8 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-foreground/60">
-  <p>
-    © {new Date().getFullYear()} GitaGuru. {language === 'english' ? 'All rights reserved by' : 'সমস্ত অধিকার সংরক্ষিত'} <span className="text-primary font-semibold">Abir Kundu</span>.
-  </p>
-  <div className="mt-4 md:mt-0 flex space-x-4">
-    <a href="#" className="hover:text-primary transition-colors duration-200">
-      {language === 'english' ? 'Privacy Policy' : 'গোপনীয়তা নীতি'}
-    </a>
-    <a href="#" className="hover:text-primary transition-colors duration-200">
-      {language === 'english' ? 'Terms of Service' : 'পরিষেবার শর্তাবলী'}
-    </a>
-  </div>
-</div>
-
-<p className="mt-4 text-primary font-semibold hover:scale-105 transition-transform duration-1000 text-center text-sm md:text-base">
-  {language === 'english' 
-    ? 'This is my original creation — not for replication.' 
-    : 'এটি আমার নিজস্ব একটি সৃষ্টি —  নকলের জন্য নয়।'}
-</p>
-
+          <p className="flex items-center gap-1 text-center md:text-left">
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-foreground/60" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 1.75C6.07 1.75 1.25 6.57 1.25 12.5S6.07 23.25 12 23.25 22.75 18.43 22.75 12.5 17.93 1.75 12 1.75Zm0 20A9.5 9.5 0 1 1 21.5 12.5 9.51 9.51 0 0 1 12 21.75Zm0-14.25a3.75 3.75 0 0 1 2.77 1.22l1.07-1.07a5.25 5.25 0 1 0 0 7.42l-1.07-1.07A3.75 3.75 0 1 1 12 7.5Z"/>
+            </svg>
+            {new Date().getFullYear()} GitaGuru. {language === 'english' ? 'All rights reserved by' : 'সমস্ত অধিকার সংরক্ষিত'} <span className="text-primary font-semibold">Abir Kundu</span>.
+          </p>
+          <div className="mt-4 md:mt-0 flex space-x-4">
+            <a href="#" className="hover:text-primary transition-colors duration-200">
+              {language === 'english' ? 'Privacy Policy' : 'গোপনীয়তা নীতি'}
+            </a>
+            <a href="#" className="hover:text-primary transition-colors duration-200">
+              {language === 'english' ? 'Terms of Service' : 'পরিষেবার শর্তাবলী'}
+            </a>
+          </div>
         </div>
+
+        <p className="mt-4 text-primary font-semibold hover:scale-105 transition-transform duration-1000 text-center text-sm md:text-base">
+          {language === 'english' 
+            ? 'This is my original creation — not for replication.' 
+            : 'এটি আমার নিজস্ব একটি সৃষ্টি —  নকলের জন্য নয়।'}
+        </p>
+        
       </div>
     </footer>
   );
