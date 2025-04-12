@@ -44,7 +44,7 @@ const FallingFlowers = ({ flowerType = '🌸', flowerCount = 15 }: FallingFlower
     id,
     left: Math.random() * 100, // position across the width (0-100%)
     animationDuration: 5 + Math.random() * 10, // between 5-15 seconds to fall
-    delay: Math.random() * 5, // delay start by 0-5 seconds
+    delay: Math.random() * 2, // delay start by 0-2 seconds
     rotation: Math.random() * 360, // initial rotation
     size: 0.6 + Math.random() * 0.8, // size between 0.6-1.4em
   });
