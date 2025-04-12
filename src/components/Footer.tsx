@@ -83,15 +83,25 @@ const Footer = () => {
         </div>
         
         <div className="border-t border-border mt-8 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-foreground/60">
-          <p>© {new Date().getFullYear()} GitaGuru. {language === 'english' ? 'All rights reserved by' : 'সমস্ত অধিকার সংরক্ষিত'} Abir Kundu.</p>
-          <div className="mt-4 md:mt-0 flex space-x-4">
-            <a href="#" className="hover:text-primary transition-colors duration-200">
-              {language === 'english' ? 'Privacy Policy' : 'গোপনীয়তা নীতি'}
-            </a>
-            <a href="#" className="hover:text-primary transition-colors duration-200">
-              {language === 'english' ? 'Terms of Service' : 'পরিষেবার শর্তাবলী'}
-            </a>
-          </div>
+  <p>
+    © {new Date().getFullYear()} GitaGuru. {language === 'english' ? 'All rights reserved by' : 'সমস্ত অধিকার সংরক্ষিত'} <span className="text-primary font-semibold">Abir Kundu</span>.
+  </p>
+  <div className="mt-4 md:mt-0 flex space-x-4">
+    <a href="#" className="hover:text-primary transition-colors duration-200">
+      {language === 'english' ? 'Privacy Policy' : 'গোপনীয়তা নীতি'}
+    </a>
+    <a href="#" className="hover:text-primary transition-colors duration-200">
+      {language === 'english' ? 'Terms of Service' : 'পরিষেবার শর্তাবলী'}
+    </a>
+  </div>
+</div>
+
+<p className="mt-4 text-primary font-semibold hover:scale-105 transition-transform duration-1000 text-center text-sm md:text-base">
+  {language === 'english' 
+    ? 'This is my original creation — not for replication.' 
+    : 'এটি আমার নিজস্ব একটি সৃষ্টি —  নকলের জন্য নয়।'}
+</p>
+
         </div>
       </div>
     </footer>
