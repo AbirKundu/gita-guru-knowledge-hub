@@ -19,6 +19,13 @@ const ChapterOverview = ({ chapters, language }: ChapterOverviewProps) => {
             key={`overview-${chapter.number}`}
             href={`#chapter-${chapter.number}`}
             className="bg-card border border-border rounded-lg p-3 text-center hover:shadow-md transition-all hover:border-primary/30"
+            onClick={(e) => {
+              e.preventDefault();
+              const targetChapter = document.getElementById(`chapter-${chapter.number}`);
+              if (targetChapter) {
+                targetChapter.scrollIntoView({ behavior: 'smooth' });
+              }
+            }}
           >
             <div className="w-10 h-10 mx-auto mb-2 flex items-center justify-center bg-primary/10 text-primary rounded-full font-semibold">
               {chapter.number}

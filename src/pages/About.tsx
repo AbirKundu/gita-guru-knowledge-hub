@@ -2,9 +2,11 @@ import React, { useEffect, useContext } from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { LanguageContext } from '@/providers/LanguageProvider';
+import { useTheme } from '@/providers/ThemeProvider';
 
 const AboutPage = () => {
   const { language } = useContext(LanguageContext);
+  const { theme } = useTheme();
 
   useEffect(() => {
     // Scroll to top when component mounts
@@ -20,7 +22,11 @@ const AboutPage = () => {
       <main className="pt-24 pb-20 px-4 md:px-6">
         <div className="container mx-auto max-w-6xl">
           <h1 className="text-4xl md:text-5xl font-bold mb-6 text-center">
-            {language === 'english' ? (<span>About <span className="text-white">Gita</span><span className="text-orange-500">Guru</span></span>) : (<span><span className="text-white">গীতা</span><span className="text-orange-500">গুরু</span> সম্পর্কে</span>)}
+            {language === 'english' ? (
+              <span>About <span className={theme === 'light' ? "text-primary" : "text-white"}>Gita</span><span className="text-orange-500">Guru</span></span>
+            ) : (
+              <span><span className={theme === 'light' ? "text-primary" : "text-white"}>গীতা</span><span className="text-orange-500">গুরু</span> সম্পর্কে</span>
+            )}
           </h1>
           <p className="text-lg text-foreground/80 max-w-3xl mx-auto text-center mb-12 hover:text-lg hover:scale-105 transition-transform duration-[1500ms] ease-in-out">
             {language === 'english' 
