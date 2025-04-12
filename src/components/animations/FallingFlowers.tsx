@@ -11,12 +11,17 @@ interface Flower {
   size: number;
 }
 
-const FallingFlowers = () => {
+interface FallingFlowersProps {
+  flowerType?: '🌸' | '🪷' | '💮' | '🌺' | '🌼';
+  flowerCount?: number;
+}
+
+const FallingFlowers = ({ flowerType = '🌸', flowerCount = 15 }: FallingFlowersProps) => {
   const [flowers, setFlowers] = useState<Flower[]>([]);
   
   useEffect(() => {
     // Create initial set of flowers
-    const initialFlowers = Array.from({ length: 15 }, (_, i) => createFlower(i));
+    const initialFlowers = Array.from({ length: flowerCount }, (_, i) => createFlower(i));
     setFlowers(initialFlowers);
     
     // Add a new flower every 2 seconds
@@ -33,7 +38,7 @@ const FallingFlowers = () => {
     }, 2000);
     
     return () => clearInterval(interval);
-  }, []);
+  }, [flowerCount]);
   
   const createFlower = (id: number): Flower => ({
     id,
@@ -58,7 +63,7 @@ const FallingFlowers = () => {
             fontSize: `${flower.size}em`
           }}
         >
-          🌸
+          {flowerType}
         </div>
       ))}
     </div>

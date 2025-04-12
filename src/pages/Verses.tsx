@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import FallingFlowers from '@/components/animations/FallingFlowers';
 import { Search } from 'lucide-react';
 import { LanguageContext } from '@/providers/LanguageProvider';
 import { useContext } from 'react';
@@ -46,6 +47,7 @@ const VersesPage = () => {
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
+      <FallingFlowers flowerType="🌺" flowerCount={18} />
       <main className="pt-24 pb-20 px-4 md:px-6">
         <div className="container mx-auto max-w-6xl">
           <div className="text-center mb-12">

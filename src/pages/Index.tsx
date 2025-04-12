@@ -9,6 +9,7 @@ import KeyVerses from '@/components/KeyVerses';
 import ModernRelevance from '@/components/ModernRelevance';
 import CallToAction from '@/components/CallToAction';
 import Footer from '@/components/Footer';
+import FallingFlowers from '@/components/animations/FallingFlowers';
 import { LanguageContext } from '@/providers/LanguageProvider';
 
 const Index = () => {
@@ -27,6 +28,7 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
+      <FallingFlowers flowerType="🪷" />
       <main>
         <Hero />
         <Overview />

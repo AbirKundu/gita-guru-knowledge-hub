@@ -6,7 +6,7 @@ import { LanguageProvider } from '@/providers/LanguageProvider';
 // Pages
 import IndexPage from '@/pages/Index';
 import ChaptersPage from '@/pages/Chapters';
-import PhilosophyPage from '@/pages/Philosophy';
+import PhilosophyWithFlowers from '@/pages/PhilosophyWithFlowers';
 import VersesPage from '@/pages/Verses';
 import AboutPage from '@/pages/About';
 import NotFound from '@/pages/NotFound';
@@ -22,7 +22,7 @@ const App = () => {
           <Routes>
             <Route path="/" element={<IndexPage />} />
             <Route path="/chapters" element={<ChaptersPage />} />
-            <Route path="/philosophy" element={<PhilosophyPage />} />
+            <Route path="/philosophy" element={<PhilosophyWithFlowers />} />
             <Route path="/verses" element={<VersesPage />} />
             <Route path="/about" element={<AboutPage />} />
             <Route path="*" element={<NotFound />} />

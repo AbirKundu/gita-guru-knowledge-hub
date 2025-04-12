@@ -1,6 +1,8 @@
+
 import React, { useEffect, useContext } from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import FallingFlowers from '@/components/animations/FallingFlowers';
 import { LanguageContext } from '@/providers/LanguageProvider';
 import { useTheme } from '@/providers/ThemeProvider';
 
@@ -19,6 +21,7 @@ const AboutPage = () => {
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
+      <FallingFlowers flowerType="💮" flowerCount={20} />
       <main className="pt-24 pb-20 px-4 md:px-6">
         <div className="container mx-auto max-w-6xl">
           <h1 className="text-4xl md:text-5xl font-bold mb-6 text-center">

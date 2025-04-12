@@ -3,6 +3,7 @@ import React, { useEffect, useContext } from "react";
 import { useLocation, Link } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import FallingFlowers from "@/components/animations/FallingFlowers";
 import { ArrowLeft } from "lucide-react";
 import { LanguageContext } from "@/providers/LanguageProvider";
 
@@ -25,7 +26,7 @@ const NotFound = () => {
   return (
     <div className="min-h-screen bg-background flex flex-col">
       <Navbar />
-      
+      <FallingFlowers flowerType="🌸" flowerCount={10} />
       <main className="flex-grow flex items-center justify-center py-20 px-4">
         <div className="text-center max-w-md mx-auto">
           <h1 className="text-5xl font-bold mb-4">404</h1>
@@ -43,7 +44,6 @@ const NotFound = () => {
           </Link>
         </div>
       </main>
-      
       <Footer />
     </div>
   );
