@@ -6,6 +6,7 @@ import { LanguageContext } from '@/providers/LanguageProvider';
 import { getChapters } from '@/data/chapters';
 import ChapterOverview from '@/components/chapters/ChapterOverview';
 import ChapterDetailCard from '@/components/chapters/ChapterDetailCard';
+import FallingFlowers from '@/components/animations/FallingFlowers';
 
 const ChaptersPage = () => {
   const { language } = useContext(LanguageContext);
@@ -36,6 +37,7 @@ const ChaptersPage = () => {
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
+      <FallingFlowers />
       <main className="pt-24 pb-20 px-4 md:px-6" ref={contentRef}>
         <div className="container mx-auto max-w-6xl">
           <h1 className="text-4xl md:text-5xl font-bold mb-6 text-center">

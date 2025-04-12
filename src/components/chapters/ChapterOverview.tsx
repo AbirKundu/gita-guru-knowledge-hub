@@ -70,7 +70,7 @@ const ChapterOverview = ({ chapters, language }: ChapterOverviewProps) => {
   };
 
   return (
-    <div className="mb-16">
+    <div className="mb-16 relative z-20">
       <h2 className="text-2xl font-semibold mb-6 text-center">
         {language === 'english' ? 'Chapter Overview' : 'অধ্যায় পরিদর্শন'}
       </h2>
