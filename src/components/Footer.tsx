@@ -100,8 +100,8 @@ const Footer = () => {
 
         <p className="mt-4 text-primary font-semibold hover:scale-105 transition-transform duration-1000 text-center text-sm md:text-base">
           {language === 'english' 
-            ? 'This is my original creation — not for replication.' 
-            : 'এটি আমার নিজস্ব একটি সৃষ্টি —  নকলের জন্য নয়।'}
+            ? 'This is my original creation.' 
+            : 'এটি আমার নিজস্ব একটি সৃষ্টি ।'}
         </p>
         
       </div>
